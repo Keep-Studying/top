@@ -1,10 +1,10 @@
-package com.study.designpattern;
+package com.study.jvm;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class DesignpatternApplicationTests {
+class JvmApplicationTests {
 
     @Test
     void contextLoads() {
