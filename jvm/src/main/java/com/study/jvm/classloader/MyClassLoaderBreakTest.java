@@ -87,6 +87,12 @@ public class MyClassLoaderBreakTest {
      * 同一个JVM内，两个相同包名和类名的类对象可以共存，因为他们的类加载器可以不一样，
      * 所以看两个类对象是否是同一个，除了看类的包名和类名是否都相同之外，还需要他们的
      * 类加载器也是同一个才能认为他们是同一个
+     *
+     * 输出结果：
+     * Tihs is the output method,User [        name=null,        age=null]
+     * com.study.jvm.classloader.MyClassLoaderBreakTest$MyClassLoaderBreak@7440e464
+     * Other User1,Tihs is the output method,User [        name=null,        age=null]
+     * com.study.jvm.classloader.MyClassLoaderBreakTest$MyClassLoaderBreak@27c170f0
      * */
     public static void main(String[] args) throws Exception{
         MyClassLoaderBreak myClassLoaderBreak = new MyClassLoaderBreak("D:/test");
@@ -97,8 +103,8 @@ public class MyClassLoaderBreakTest {
         method.invoke(obj,null);
         System.out.println(clazz.getClassLoader());
 
-        MyClassLoaderBreak myClassLoaderBreak1 = new MyClassLoaderBreak("D:/test");
-        //在D盘创建 test/com/study/jvm/classloader 几何目录，将User类的复制类User1.class丢入该目录
+        MyClassLoaderBreak myClassLoaderBreak1 = new MyClassLoaderBreak("D:/test1");
+        //在D盘创建 test1/com/study/jvm/classloader 几何目录，将User类的复制类User1.class丢入该目录
         Class clazz1 = myClassLoaderBreak1.loadClass("com.study.jvm.classloader.User1");
         Object obj1 = clazz1.newInstance();
         Method method1 = clazz1.getDeclaredMethod("output", null);

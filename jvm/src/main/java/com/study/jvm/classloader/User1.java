@@ -14,7 +14,7 @@ public class User1 {
     private Integer age;
 
     public void output(){
-        System.out.println("Tihs is the output method,"+this.toString());
+        System.out.println("Other User1,Tihs is the output method,"+this.toString());
     }
 
     public User1() {
