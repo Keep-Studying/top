@@ -23,7 +23,6 @@ public class Math {
         int compute = math.compute();
         System.out.println("compute value is "+compute);
 
-        User user = new User();
         user.setName("zhangsan");
         user.setAge(18);
         user.output();
