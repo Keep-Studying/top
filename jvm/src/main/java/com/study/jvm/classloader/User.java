@@ -3,15 +3,17 @@
  */
 package com.study.jvm.classloader;
 
+import com.study.jvm.memoryModel.OOMTest;
+
 /**
  * 用户对象
  * @author study
  * @version : User.java, v 0.1 2020年06月20日 23:28 study Exp $
  */
 public class User {
+    private Integer age;
     private String name;
 
-    private Integer age;
 
     public void output(){
         System.out.println("Tihs is the output method,"+this.toString());
@@ -25,6 +27,11 @@ public class User {
         this.age = age;
     }
 
+    public User(Integer age, String name) {
+        this.age = age;
+        this.name = name;
+    }
+
     @Override
     public String toString() {
         final StringBuilder builder = new StringBuilder("User [");
@@ -33,6 +40,12 @@ public class User {
                 .append(",        age=").append(age)
                 .append(']');
         return builder.toString();
+    }
+
+    @Override
+    protected void finalize() throws Throwable {
+        OOMTest.saveSelfList.add(this);
+        System.out.println("关闭资源，User age=" + age + "即将被回收");
     }
 
     /**
