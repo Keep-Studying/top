@@ -4,6 +4,9 @@
 ## designpattern
 module-designpattern是一个设计模式相关的模块
 
+## algorithm
+数据结构与算法模块
+
 ## jvm
 Java虚拟机相关的模块
 
