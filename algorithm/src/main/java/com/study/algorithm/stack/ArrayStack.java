@@ -3,6 +3,7 @@
  */
 package com.study.algorithm.stack;
 
+import java.util.EmptyStackException;
 
 /**
  * 数组方式实现的栈
@@ -24,8 +25,6 @@ public class ArrayStack<E> implements MyStack<E> {
     private void judgeSize(){
         if(count >= data.length){		//元素个数已经超出了数组的个数
             resize(2 * data.length);		//10*2*2=40个大小了，我出栈了20个了，只剩下20了吧。
-        }else if(count > 0 && count <= data.length / 2){
-            resize(data.length / 2);
         }
     }
 
@@ -55,7 +54,7 @@ public class ArrayStack<E> implements MyStack<E> {
         //n不是已经--了么 --n和n-- --n是先把n减了在用，n--先用了在减
         E e = (E)data[--count];
         //为什么要执行这一步？释放空间
-        data[count] = null;
+        data[count] = null; /* to let gc do its work */
         return e;
     }
 
@@ -67,6 +66,13 @@ public class ArrayStack<E> implements MyStack<E> {
     @Override
     public boolean isEmpty() {
         return count == 0;
+    }
+
+    @Override
+    public E peek() {
+        if (count == 0)
+            throw new EmptyStackException();
+        return (E)data[count-1];
     }
 
     public static void main(String[] args) {

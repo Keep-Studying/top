@@ -29,4 +29,9 @@ public interface MyStack<E> {
      * 判空
      * */
     boolean isEmpty();
+
+    /**
+     * 查看栈顶元素，但不出栈
+     * */
+    E peek();
 }
