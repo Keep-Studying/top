@@ -143,7 +143,6 @@ public class Fibonacci {
     @Test
     public void testTailFab(){
         for (int i = 1; i <= 45; i++) {
-            data = new int[46];
             long start = System.currentTimeMillis();
             System.out.println(i + ":" + tailFab(1,1,i) + " case3 所花费的时间为"
                     + (System.currentTimeMillis() - start) + "ms");
