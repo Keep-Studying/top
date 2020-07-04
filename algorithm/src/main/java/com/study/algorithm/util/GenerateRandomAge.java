@@ -15,7 +15,7 @@ import java.util.Random;
  */
 public class GenerateRandomAge {
     public static void main(String[] args) throws Exception {
-        final String fileName = "E:\\age1.txt";
+        final String fileName = "E:\\IDEA_ITEM_TARGET\\age1.txt";
         final Random random = new Random();
         BufferedWriter objWriter = null;
         objWriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(fileName)));

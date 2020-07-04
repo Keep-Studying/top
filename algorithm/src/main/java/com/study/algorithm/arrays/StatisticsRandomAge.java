@@ -38,7 +38,7 @@ public class StatisticsRandomAge {
      * */
     public static void main(String[] args) throws Exception {
         String str = null;
-        String fileName = "E:\\age1.txt";
+        String fileName = "E:\\IDEA_ITEM_TARGET\\age1.txt";
         InputStreamReader isr = new InputStreamReader(new FileInputStream(fileName),"UTF-8");
 
         long start = System.currentTimeMillis();
