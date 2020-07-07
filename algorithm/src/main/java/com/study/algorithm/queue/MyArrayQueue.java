@@ -6,9 +6,9 @@ package com.study.algorithm.queue;
 /**
  * 数组实现的顺序单向队列
  * @author study
- * @version : ArrayQueue.java, v 0.1 2020年06月29日 22:25 study Exp $
+ * @version : MyArrayQueue.java, v 0.1 2020年06月29日 22:25 study Exp $
  */
-public class ArrayQueue<E> implements MyQueue<E>{
+public class MyArrayQueue<E> implements MyQueue<E>{
     /**
      * 数据
      */
@@ -30,7 +30,7 @@ public class ArrayQueue<E> implements MyQueue<E>{
      */
     private int    size;
 
-    public ArrayQueue(int capacity) {
+    public MyArrayQueue(int capacity) {
         this.data = new Object[capacity];
         n = capacity;
     }
@@ -81,7 +81,7 @@ public class ArrayQueue<E> implements MyQueue<E>{
     }
 
     public static void main(String[] args) {
-        ArrayQueue<String> queue = new ArrayQueue<>(10);
+        MyArrayQueue<String> queue = new MyArrayQueue<>(10);
         queue.enqueue("1");
         queue.enqueue("2");
         queue.enqueue("3");
