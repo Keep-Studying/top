@@ -127,7 +127,7 @@ public class BinarySearchTree {
         //对左孩子进行判断，若有左孩子，则记录相应的"/"与左孩子的值
         if(currNode.left != null){
             res[rowIndex+1][columnIndex-gap] = "/";
-            writeArray(currNode.right,rowIndex+2,columnIndex+gap*2,res,treeDepth);
+            writeArray(currNode.left,rowIndex+2,columnIndex-gap*2,res,treeDepth);
         }
         // 对右孩子进行判断，若有右孩子，则记录相应的"\"与右孩子的值
         if (currNode.right != null) {
@@ -358,6 +358,8 @@ public class BinarySearchTree {
         while(true) {
             System.out.println("请输入要删除的点：-1表示结束");
             int key = cin.nextInt();
+            if (key == -1)
+                break;
             root = binarySearchTree.remove(root, key);
             binarySearchTree.show(root);
             if(root == null) {
