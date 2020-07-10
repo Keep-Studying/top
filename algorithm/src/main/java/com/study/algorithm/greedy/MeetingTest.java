@@ -86,7 +86,7 @@ class Meeting implements Comparable<Meeting>{
 
     @Override
     public int compareTo(Meeting o) {
-        return 0;
+        return this.endTime - o.endTime;
     }
 
     @Override
