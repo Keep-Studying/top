@@ -6,6 +6,17 @@ package com.study.algorithm.tree;
 import java.util.*;
 
 /**
+ * 赫夫曼树
+ * 给定N个权值作为N个叶子节点，构造一颗二叉树，若该树的带权路径长度达到最小，
+ * 称这样的树为最优二叉树，也称为哈夫曼树(Huffman Tree)。哈夫曼树是带权路
+ * 径长度最短的树，权值较大的结点离根较近。
+ *
+ * 构建赫夫曼树
+ * 具体的实现思路如下：
+ * 1. 每次取数值最小的两个节点，将之组成一颗子树
+ * 2. 移除原来的两个点
+ * 3. 然后将组成的子树放入原来的序列中
+ * 4. 重复执行1 2 3知道只剩下最后一个点
  * @author study
  * @version : HuffmenTree.java, v 0.1 2020年07月10日 8:32 study Exp $
  */
@@ -24,7 +35,7 @@ public class HuffmenTree {
 
     }
 
-    public void encode() { // 解码 不会给你们写的，留给课后作业
+    public void encode() { // 编码 不会给你们写的，留给课后作业
 
     }
 
@@ -92,7 +103,7 @@ public class HuffmenTree {
         weights.put('a', 3);
         weights.put('b', 24);
         weights.put('c', 6);
-        weights.put('d', 1);
+        weights.put('d', 20);
         weights.put('e', 34);
         weights.put('f', 4);
         weights.put('g', 12);
