@@ -13,8 +13,9 @@ package java.lang;
  * @author study
  * @version : String.java, v 0.1 2020年06月21日 12:53 study Exp $
  */
+/*
 public class String {
     public static void main(String[] args) {
         System.out.println("**************My String Class**************");
     }
-}
+}*/
