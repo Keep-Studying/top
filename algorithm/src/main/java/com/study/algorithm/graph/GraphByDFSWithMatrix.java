@@ -3,7 +3,10 @@
  */
 package com.study.algorithm.graph;
 
+import com.alibaba.fastjson.JSON;
+
 import java.util.Scanner;
+import java.util.Stack;
 
 /**
  * 优先遍历（DFS）：大家可以想象玩迷宫，是不是选择一个方向走到底，直到不能
@@ -54,11 +57,18 @@ public class GraphByDFSWithMatrix implements Graph{
      * 每条路径都可能走2n次，则m*2n，则m指的是路径数
      * 时间复杂度和路径数有关
      * 时间复杂度为：T(n) = O(n^2)
+     * @param x
+     * @param y
+     * @param step
+     * @param stack 标记走过的路径位置
      * */
-    public void dfs(int x, int y, int step) { // x,y表示我的位置，step,当前走过的路径长度
+    public void dfs(int x, int y, int step, Stack<String> stack) { // x,y表示我的位置，step,当前走过的路径长度
+        //记录已经走过的位置
+        stack.push(x+","+y);
         if (x == dx && y == dy) {		//枚举了所有的路径
-            if (step < minStep)
+            if (step < minStep){
                 minStep = step;
+            }
             return;
         }
         for (int i = 0; i < 4; i++) {
@@ -70,7 +80,7 @@ public class GraphByDFSWithMatrix implements Graph{
                 // 这里有三行代码
                 mark[nextx][nexty] = true;
                 System.out.println("step:"+step+",point now x:"+x+",y:"+y+",point next n:"+nextx+",m:"+nexty);
-                dfs(nextx, nexty, step + 1);
+                dfs(nextx, nexty, ++step,stack);
                 // 回溯
                 mark[nextx][nexty] = false;
             }
@@ -97,7 +107,9 @@ public class GraphByDFSWithMatrix implements Graph{
 
         mark[x][y] = true;		//我的起始位置
         GraphByDFSWithMatrix dfs = new GraphByDFSWithMatrix(n, m, dx, dy, data, mark);
-        dfs.dfs(x, y, 0);
+        Stack<String> stack = new Stack<>();
+        dfs.dfs(x, y, 0,stack);
+        System.out.println(JSON.toJSONString(stack));
         System.out.println(dfs.minStep);
     }
 }

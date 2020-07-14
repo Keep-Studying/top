@@ -37,7 +37,7 @@ public class HeapSort {
             //比较左右节点和父节点的大小
             //默认是左节点比较大
             int temp = son;
-            // 表示右节点比左节点到
+            // 表示右节点比左节点大
             if(son + 1 < end && data[son] < data[son+1]){
                 // 就要换右节点跟父节点
                 temp = son + 1;

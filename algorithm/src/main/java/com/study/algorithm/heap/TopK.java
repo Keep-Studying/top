@@ -72,7 +72,7 @@ public class TopK {
         while (son < end) {
             int temp = son;
             // 比较左右节点和父节点的大小
-            if (son + 1 < end && data[son] > data[son + 1]) { // 表示右节点比左节点到
+            if (son + 1 < end && data[son] > data[son + 1]) { // 表示右节点比左节点小
                 temp = son + 1; // 就要换右节点跟父节点
             }
             // temp表示的是 我们左右节点小的那一个
