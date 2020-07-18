@@ -54,6 +54,12 @@
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <!--版本号可以自行选择更高的-->
+            <version>19.0</version>
+        </dependency>
     </dependencies>
 
     <build>
