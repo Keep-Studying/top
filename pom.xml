@@ -17,6 +17,7 @@
 
     <modules>
         <module>designpattern</module>
+        <module>ik</module>
     </modules>
     <properties>
         <java.version>1.8</java.version>
