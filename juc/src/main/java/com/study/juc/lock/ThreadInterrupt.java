@@ -49,6 +49,7 @@ public class ThreadInterrupt {
 
         try {
             Thread.sleep(500);
+            t0.interrupt();
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

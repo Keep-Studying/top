@@ -62,6 +62,7 @@ class NumbersConsumer implements Runnable {
             while (true) {
                 Integer number = queue.take();
                 if (number.equals(poisonPill)) {
+                    log.info("武大郎-{}号,喝到毒药！！！,药-编号:{}",Thread.currentThread().getId(),number);
                     return;
                 }
                 log.info("武大郎-{}号,喝药-编号:{}",Thread.currentThread().getId(),number);
@@ -95,14 +96,14 @@ class NumbersProducer implements Runnable {
     }
 
     private void generateNumbers() throws InterruptedException {
-       /* for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < 100; i++) {
             numbersQueue.put(ThreadLocalRandom.current().nextInt(100));
             log.info("潘金莲-{}号,给武大郎的泡药！",Thread.currentThread().getId());
-        }*/
-        while(true){
+        }
+        /*while(true){
             numbersQueue.put(ThreadLocalRandom.current().nextInt(100));
             if(false){break;}
-        }
+        }*/
 
         for (int j = 0; j < poisonPillPerProducer; j++) {
             numbersQueue.put(poisonPill);

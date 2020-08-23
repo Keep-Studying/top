@@ -25,6 +25,7 @@ public class ThreadLockSupport {
                 for (;;) {//spin自旋
                     log.info("准备park住当前线程：{}....",current.getName());
                     LockSupport.park();
+                    Thread.interrupted();//会清除线程上的中断标记，让线程重新被park住
                     log.info("当前线程{}已经被唤醒",current.getName());
                 }
             }
