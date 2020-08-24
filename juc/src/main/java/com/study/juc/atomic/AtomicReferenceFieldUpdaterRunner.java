@@ -1,0 +1,49 @@
+/**
+ * Study.com Inc. Copyright (c) 2019-2020 All Rights Reserved.
+ */
+package com.study.juc.atomic;
+
+import lombok.Data;
+
+import java.util.concurrent.atomic.AtomicReferenceFieldUpdater;
+import java.util.function.UnaryOperator;
+
+/**
+ * AtomicReferenceFieldUpdater：原子更新引用类型里的字段
+ * @author study
+ * @version : AtomicReferenceFieldUpdaterRunner.java, v 0.1 2020年08月24日 21:34 study Exp $
+ */
+public class AtomicReferenceFieldUpdaterRunner {
+    static AtomicReferenceFieldUpdater atomic = AtomicReferenceFieldUpdater.newUpdater(Document.class,String.class,"name");
+
+    public static void main(String[] args) {
+        Document document = new Document("杨过",1);
+
+        System.out.println(atomic.get(document));
+
+        atomic.getAndSet(document,"xiaolongnv");
+
+        System.out.println(atomic.get(document));
+
+        //另一种方式修改
+        UnaryOperator<String> uo = s->{
+            System.out.println("UnaryOperator:-->"+s);
+            return "小龙女";
+        };
+        System.out.println(atomic.getAndUpdate(document, uo));
+        System.out.println(atomic.get(document));
+
+    }
+
+    @Data
+    static class Document{
+        public volatile String name;
+        private int version;
+
+        Document(String obj,int v){
+            name = obj;
+            version = v;
+        }
+
+    }
+}
