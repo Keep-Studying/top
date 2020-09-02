@@ -3,8 +3,8 @@
  */
 package com.study.juc.list;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -55,9 +55,9 @@ public class CopyOnWriteArrayListRunner {
     public void run() {
         final int NUM = Runtime.getRuntime().availableProcessors();
         //CopyOnWriteArrayList可以读写
-        //List<String> list = new CopyOnWriteArrayList<>();
+        List<String> list = new CopyOnWriteArrayList<>();
         //ArrayList不能同时读写
-        List<String> list = new ArrayList<>();
+        //List<String> list = new ArrayList<>();
         for (int i = 0; i < NUM; i++) {
             list.add("main_" + i);
         }
