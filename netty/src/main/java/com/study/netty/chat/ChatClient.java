@@ -53,6 +53,10 @@ public class ChatClient {
                 //通过 channel 发送到服务器端
                 channel.writeAndFlush(msg);
             }
+            //或者不间断的发送200条
+            /*for (int i = 0; i < 200; i++) {
+                channel.writeAndFlush("hello，诸葛!" + "_");
+            }*/
         } finally {
             group.shutdownGracefully();
         }
