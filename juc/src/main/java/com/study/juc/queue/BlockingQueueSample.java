@@ -57,6 +57,7 @@ class NumbersConsumer implements Runnable {
         this.poisonPill = poisonPill;
     }
 
+    @Override
     public void run() {
         try {
             while (true) {

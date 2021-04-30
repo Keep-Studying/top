@@ -3,7 +3,11 @@
  */
 package com.study.juc.pool;
 
+import lombok.extern.slf4j.Slf4j;
+import org.junit.Test;
+
 import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.*;
 
 /**
@@ -72,5 +76,61 @@ public class ThreadPool {
 
         threadPoolExecutor.shutdown();  //running->shutdown
         threadPoolExecutor.shutdownNow(); //running->stop
+    }
+
+    @Test
+    public void test(){
+        ThreadPoolExecutor threadPoolExecutor =
+                new ThreadPoolExecutor(5,10,5000,
+                        TimeUnit.MILLISECONDS, new ArrayBlockingQueue<Runnable>(5));
+
+        List<Future> futures = new ArrayList<>();
+        CountDownLatch countDownLatch = new CountDownLatch(6);
+        List<Integer> integers = new ArrayList<>();
+        for (int i = 0; i < 6; i++) {
+
+            try {
+                Task task = new Task(new Integer(i), countDownLatch, integers);
+                futures.add(threadPoolExecutor.submit(task));
+            } catch (Exception e){
+                e.printStackTrace();
+                countDownLatch.countDown();
+            }
+        }
+
+        try {
+            countDownLatch.await(1000,TimeUnit.MILLISECONDS);
+            for (Future future : futures) {
+                future.cancel(true);
+            }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println(integers.toString());
+    }
+
+    @Slf4j
+    static class Task implements Runnable{
+        private Integer taskId;
+        private CountDownLatch countDownLatch;
+        private List<Integer> list;
+
+        public Task(Integer taskId, CountDownLatch countDownLatch, List<Integer> list) {
+            this.taskId = taskId;
+            this.countDownLatch = countDownLatch;
+            this.list = list;
+        }
+
+        @Override
+        public void run() {
+            try {
+                list.add(taskId);
+            }catch (Exception e){
+                log.info(Thread.currentThread()+"  taskId:"+taskId,e);
+            }finally {
+                countDownLatch.countDown();
+            }
+        }
     }
 }

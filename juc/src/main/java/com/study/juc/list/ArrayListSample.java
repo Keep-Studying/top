@@ -4,9 +4,9 @@
 package com.study.juc.list;
 
 import lombok.extern.slf4j.Slf4j;
+import org.junit.Test;
 
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 /**
  * @author study
@@ -51,5 +51,32 @@ public class ArrayListSample {
         for (int i = 0; i < list.size(); i++) {
             log.info("第" + (i + 1) + "个元素为：" + list.get(i));
         }
+    }
+    @Test
+    public void test(){
+        /*int data[] = {1,5,0,10};
+        Arrays.sort(data);
+        System.out.println(Arrays.toString(data));*/
+
+
+        ArrayList<Long> old = new ArrayList<>();
+        old.add(new Long(7));
+        old.add(new Long(9));
+        old.add(new Long(2));
+        old.add(new Long(0));
+        old.add(new Long(5));
+
+        /*LinkedList<Long> longs1 = new LinkedList<>();
+        longs1.*/
+
+        ArrayList<Long> longs = new ArrayList<>();
+        longs.add(new Long(9));
+        longs.add(new Long(5));
+        longs.add(new Long(2));
+        longs.sort((k1,k2)->{
+            return old.indexOf(k1) - old.indexOf(k2);
+        });
+
+        System.out.println(longs.toString());
     }
 }
