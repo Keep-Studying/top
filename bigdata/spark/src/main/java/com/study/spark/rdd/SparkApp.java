@@ -3,10 +3,12 @@ package com.study.spark.rdd;
 import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.api.java.JavaSparkContext;
+import org.apache.spark.api.java.function.FlatMapFunction;
 import org.apache.spark.api.java.function.Function;
 import org.junit.Test;
 
 import java.util.Arrays;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -39,6 +41,22 @@ public class SparkApp {
             }
         });
         System.out.println(map.collect().toString());
+    }
+
+    /**
+     * flatMap将所有的原始元素传给函数func进行格式化, 每个输入项可以映射到零个或多个输出项,输出是一个可展开的迭代器
+     */
+    public void flatMap() {
+        SparkConf sparkConf = new SparkConf().setMaster("local").setAppName("sparkDemo");
+        JavaSparkContext sc = new JavaSparkContext(sparkConf);
+        JavaRDD<String> lines = sc.parallelize(Arrays.asList("hello world", "hi"));
+        JavaRDD<String> words = lines.flatMap(new FlatMapFunction<String, String>() {
+            @Override
+            public Iterator<String> call(String line) throws Exception {
+                return Arrays.asList(line.split(" ")).iterator();
+            }
+        });
+        words.first(); // 返回"hello"
     }
 
     /**
