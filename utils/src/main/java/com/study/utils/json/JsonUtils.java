@@ -5,9 +5,13 @@ package com.study.utils.json;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson.TypeReference;
+import com.alibaba.fastjson.serializer.SimplePropertyPreFilter;
+import com.study.utils.domain.DataSource;
 import org.junit.Test;
 
 import java.util.HashMap;
+import java.util.HashSet;
 
 /**
  * @author study
@@ -46,5 +50,30 @@ public class JsonUtils {
 
         String name = (String)map.get("name");
         System.out.println(name);
+    }
+
+    /**
+     * JSON.toJSONString对String类型的value使用时，会有转义符 /" 存在，{"2":"\"2\""}
+     */
+    @Test
+    public void test03(){
+        SimplePropertyPreFilter filter = new SimplePropertyPreFilter();
+        HashSet<String> set = new HashSet<>();
+        set.add("password");
+        filter.getExcludes().addAll(set);
+
+        DataSource dataSource = new DataSource();
+        dataSource.setPassword("12345");
+        dataSource.setUserName("zhangsan");
+        dataSource.setServer("localhost");
+        String jsonString = JSON.toJSONString(dataSource, filter);
+
+        System.out.println(jsonString);
+
+        String str = "{\"server\":\"localhost\",\"userName\":\"zhangsan\",,\"password\":\"zhangsan\"}";
+
+        DataSource dataSource1 = JSON.parseObject(str, new TypeReference<DataSource>() {});
+
+        System.out.println(dataSource1);
     }
 }

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.study.mybatis.auto.daointerface.DatasourceMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.study.mybatis.auto.dataobject.DatasourceDO">
+        <id column="id" property="id" />
+        <result column="gmt_create" property="gmtCreate" />
+        <result column="create_operator" property="createOperator" />
+        <result column="gmt_modified" property="gmtModified" />
+        <result column="modified_operator" property="modifiedOperator" />
+        <result column="datasource_id" property="datasourceId" />
+        <result column="server" property="server" />
+        <result column="port" property="port" />
+        <result column="project" property="project" />
+        <result column="user_name" property="userName" />
+        <result column="password" property="password" />
+        <result column="name" property="name" />
+        <result column="type" property="type" />
+        <result column="remarks" property="remarks" />
+        <result column="relation" property="relation" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, gmt_create, create_operator, gmt_modified, modified_operator, datasource_id, server, port, project, user_name, password, name, type, remarks, relation
+    </sql>
+
+</mapper>

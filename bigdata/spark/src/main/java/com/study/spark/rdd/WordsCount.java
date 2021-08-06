@@ -28,6 +28,9 @@ public class WordsCount {
         // 集群url：先使用本地模式
         // 应用名：
         SparkConf sparkConf = new SparkConf().setMaster("local").setAppName("sparkDemo");
+        //启用公平调度时，需将spark.shceduler.mode属性设置为FAIR
+        sparkConf.set("spark.shceduler.mode","FAIR");
+        sparkConf.set("spark.shceduler.mode","pool1");
         JavaSparkContext sparkContext = new JavaSparkContext(sparkConf);
 
         JavaRDD<Integer> parallelize = sparkContext.parallelize(Arrays.asList(1, 2, 3));

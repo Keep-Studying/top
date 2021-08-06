@@ -1,0 +1,74 @@
+server:
+  port: 80
+spring:
+  cloud:
+  #    nacos: # 注册中心
+  #      discovery:
+  #        server-addr: 172.16.0.57:8848   #121.199.78.155:8848
+  #    main:
+  #      # Spring Boot 2.1
+  #      allow-bean-definition-overriding: true
+  application:
+    name: mybatis-demo
+  datasource:
+    #    driver-class-name: com.mysql.cj.jdbc.Driver
+    #    url: jdbc:mysql://172.16.0.57:3306/test?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2B8
+    #    username: hive
+    #    password: hive1234
+    #type: com.alibaba.druid.pool.DruidDataSource
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      name: 测试库
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      username: mbp
+      password: mbp1234
+      url: jdbc:mysql://localhost:3306/mbp?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2B8
+        # 连接池的配置信息
+      # 初始化大小，最小，最大
+      initial-size: 5
+      min-idle: 5
+      maxActive: 20
+      # 配置获取连接等待超时的时间
+      maxWait: 60000
+      # 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+      timeBetweenEvictionRunsMillis: 60000
+      # 配置一个连接在池中最小生存的时间，单位是毫秒
+      minEvictableIdleTimeMillis: 300000
+      validationQuery: SELECT 1
+      testWhileIdle: true
+      testOnBorrow: false
+      testOnReturn: false
+      # 打开PSCache，并且指定每个连接上PSCache的大小
+      poolPreparedStatements: true
+      maxPoolPreparedStatementPerConnectionSize: 20
+      # 配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙
+#      filters: stat,wall,slf4j,config
+#        # 通过connectProperties属性来打开mergeSql功能；慢SQL记录
+#      connectionProperties: druid.stat.mergeSql\=true;druid.stat.slowSqlMillis\=5000
+#      web-stat-filter:
+#        enabled: true
+#        url-pattern: "/"
+#        exclusions: "*.js,*.gif,*.jpg,*.bmp,*.png,*.css,*.ico,/druid/*"
+#      stat-view-servlet:
+#        enabled: true
+#        url-pattern: "/druid/*"
+#        login-username: admin  # 登录账号   不设置就不需要登录就可以访问druid可视化界面
+#        login-password: 123456 # 登录密码
+#        reset-enable: false
+#        allow: ""  # 白名单 表示所有
+#        deny: 192.168.1.12 # 黑名单
+
+mybatis-plus:
+  mapper-locations: classpath:mapper/*xml
+  configuration:
+    mapUnderscoreToCamelCase: true  # 开启驼峰匹配  默认为true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl  # 打印sql语句和入参数据
+  global-config:
+    db-config:
+      #logic-delete-value: 1 #逻辑删除  配合@TableLogic注解
+      #logic-not-delete-value: 0 #逻辑不删除
+      update-strategy: not_null # 更新时字段如果为null，就不进行更新该字段。
+      insert-strategy: not_null # 插入时如果字段为null,就不插入数据，建议数据库表字段设置默认值
+
+#logging:
+#  config: classpath:log4j2.xml

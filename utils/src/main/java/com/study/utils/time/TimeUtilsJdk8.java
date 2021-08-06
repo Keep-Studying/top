@@ -3,11 +3,14 @@
  */
 package com.study.utils.time;
 
+import org.junit.Test;
+
 import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 import java.time.temporal.TemporalAdjusters;
 import java.util.Date;
+import java.util.Random;
 
 /**
  * @author study
@@ -119,6 +122,19 @@ public class TimeUtilsJdk8 {
         /*计算时间差 分钟*/
         ChronoUnit.MILLIS.between(LocalDateTime.now(), LocalDateTime.now().with(TemporalAdjusters.lastDayOfMonth()));
         /*其他类似*/
+
+    }
+
+    @Test
+    public void test01(){
+        System.out.println(24*60*60);
+    }
+
+
+    @Test
+    public void test02(){
+        Random random = new Random();
+        System.out.println(random.nextInt(300));
 
     }
 }
