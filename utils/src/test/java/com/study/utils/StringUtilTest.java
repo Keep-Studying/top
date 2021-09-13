@@ -34,4 +34,11 @@ public class StringUtilTest {
 
         System.out.println(JSON.toJSONString(handlerContext));
     }
+
+    @Test
+    public void test03(){
+        String str = "jdbc:mysql://%s:%s/%s?useUnicode=true&characterEncoding=utf8";
+        String s = String.format(str, "127.0.0.1", 3306, "mysql");
+        System.out.println(s);
+    }
 }

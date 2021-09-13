@@ -4,7 +4,7 @@
 package com.study.utils.domain;
 
 import lombok.Data;
-import lombok.ToString;
+import lombok.experimental.Accessors;
 
 /**
  * 数据源
@@ -12,6 +12,7 @@ import lombok.ToString;
  * @version : DataSource.java, v 0.1 2021年07月02日 5:50 下午 boyan Exp $
  */
 @Data
+@Accessors(chain = true)
 public class DataSource {
     private static final long serialVersionUID = -6274699114310525203L;
 

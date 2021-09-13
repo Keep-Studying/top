@@ -1,0 +1,3360 @@
+{
+  "graph": [
+    {
+      "id": "dataset:food_delivery:public.categories",
+      "type": "DATASET",
+      "data": {
+        "type": "DATASET",
+        "id": {
+          "namespace": "food_delivery",
+          "name": "public.categories"
+        },
+        "type": "DB_TABLE",
+        "name": "public.categories",
+        "physicalName": "public.categories",
+        "createdAt": "2021-03-09T02:33:18.468719Z",
+        "updatedAt": "2021-08-25T05:07:25.925014Z",
+        "namespace": "food_delivery",
+        "sourceName": "analytics_db",
+        "fields": [
+          {
+            "name": "id",
+            "type": "INTEGER",
+            "tags": [],
+            "description": "The unique ID of the category."
+          },
+          {
+            "name": "name",
+            "type": "VARCHAR",
+            "tags": [],
+            "description": "The name of the category."
+          },
+          {
+            "name": "menu_id",
+            "type": "INTEGER",
+            "tags": [],
+            "description": "The ID of the menu related to the category."
+          },
+          {
+            "name": "description",
+            "type": "TEXT",
+            "tags": [],
+            "description": "The description of the category."
+          }
+        ],
+        "tags": [],
+        "lastModifiedAt": "2021-08-25T05:03:58.925014Z",
+        "description": null,
+        "latestMetrics": {
+          "rowCount": {
+            "count": 995
+          },
+          "bytes": {
+            "sum": 4405147
+          }
+        },
+        "latestColumnMetrics": {
+          "name": {
+            "distinctCount": {
+              "count": 693
+            },
+            "nullCount": {
+              "count": 0
+            }
+          },
+          "id": {
+            "distinctCount": {
+              "count": 990
+            },
+            "nullCount": {
+              "count": 0
+            }
+          }
+        },
+        "latestAssertions": {
+          "datasetExpectations": [
+            {
+              "expectationType": "expect_column_to_exist",
+              "success": true
+            },
+            {
+              "expectationType": "expect_table_row_count_to_be_between",
+              "success": true
+            }
+          ],
+          "columnExpectations": {
+            "name": [
+              {
+                "expectationType": "expect_column_values_to_not_match_regex",
+                "success": false
+              }
+            ],
+            "id": [
+              {
+                "expectationType": "expect_column_values_to_be_unique",
+                "success": true
+              },
+              {
+                "expectationType": "expect_column_values_to_not_be_null",
+                "success": true
+              }
+            ],
+            "menu_id": [
+              {
+                "expectationType": "expect_column_values_to_not_be_null",
+                "success": false
+              }
+            ]
+          }
+        }
+      },
+      "inEdges": [
+        {
+          "origin": "job:food_delivery:etl_orders.etl_categories",
+          "destination": "dataset:food_delivery:public.categories"
+        }
+      ],
+      "outEdges": [
+        {
+          "origin": "dataset:food_delivery:public.categories",
+          "destination": "job:food_delivery:etl_orders.etl_orders_7_days"
+        }
+      ]
+    },
+    {
+      "id": "dataset:food_delivery:public.customers",
+      "type": "DATASET",
+      "data": {
+        "type": "DATASET",
+        "id": {
+          "namespace": "food_delivery",
+          "name": "public.customers"
+        },
+        "type": "DB_TABLE",
+        "name": "public.customers",
+        "physicalName": "public.customers",
+        "createdAt": "2021-03-09T02:33:20.092476Z",
+        "updatedAt": "2021-08-25T05:19:10.925014Z",
+        "namespace": "food_delivery",
+        "sourceName": "analytics_db",
+        "fields": [
+          {
+            "name": "id",
+            "type": "INTEGER",
+            "tags": [],
+            "description": "The unique ID of the customer."
+          },
+          {
+            "name": "created_at",
+            "type": "TIMESTAMP",
+            "tags": [],
+            "description": "An ISO-8601 timestamp representing the date/time the customer was created."
+          },
+          {
+            "name": "updated_at",
+            "type": "TIMESTAMP",
+            "tags": [],
+            "description": "An ISO-8601 timestamp representing the date/time the customer was updated."
+          },
+          {
+            "name": "name",
+            "type": "VARCHAR",
+            "tags": [],
+            "description": "The name of the customer."
+          },
+          {
+            "name": "email",
+            "type": "VARCHAR",
+            "tags": [],
+            "description": "The email address of the customer."
+          },
+          {
+            "name": "address",
+            "type": "VARCHAR",
+            "tags": [],
+            "description": "The address of the customer."
+          },
+          {
+            "name": "phone",
+            "type": "VARCHAR",
+            "tags": [],
+            "description": "The phone number of the customer."
+          },
+          {
+            "name": "city_id",
+            "type": "INTEGER",
+            "tags": [],
+            "description": "The ID of the city related to the customer."
+          }
+        ],
+        "tags": [],
+        "lastModifiedAt": "2021-08-25T05:06:39.925014Z",
+        "description": null,
+        "latestMetrics": {
+          "rowCount": {
+            "count": 49755000
+          },
+          "bytes": {
+            "sum": 53424024448
+          }
+        },
+        "latestColumnMetrics": {
+          "name": {
+            "distinctCount": {
+              "count": 39235
+            },
+            "nullCount": {
+              "count": 0
+            }
+          },
+          "id": {
+            "distinctCount": {
+              "count": 49043704
+            },
+            "nullCount": {
+              "count": 0
+            }
+          },
+          "email": {
+            "distinctCount": {
+              "count": 49043704
+            },
+            "nullCount": {
+              "count": 0
+            }
+          }
+        },
+        "latestAssertions": {
+          "datasetExpectations": [
+            {
+              "expectationType": "expect_column_to_exist",
+              "success": true
+            },
+            {
+              "expectationType": "expect_table_row_count_to_be_between",
+              "success": true
+            }
+          ],
+          "columnExpectations": {
+            "updated_at": [
+              {
+                "expectationType": "expect_column_values_to_not_be_null",
+                "success": true
+              }
+            ],
+            "name": [
+              {
+                "expectationType": "expect_column_values_to_not_be_null",
+                "success": true
+              },
+              {
+                "expectationType": "expect_column_values_to_not_match_regex",
+                "success": true
+              }
+            ],
+            "created_at": [
+              {
+                "expectationType": "expect_column_values_to_not_be_null",
+                "success": true
+              }
+            ],
+            "id": [
+              {
+                "expectationType": "expect_column_values_to_be_unique",
+                "success": true
+              },
+              {
+                "expectationType": "expect_column_values_to_not_be_null",
+                "success": true
+              }
+            ],
+            "email": [
+              {
+                "expectationType": "expect_column_values_to_match_regex",
+                "success": true
+              },
+              {
+                "expectationType": "expect_column_values_to_not_be_null",
+                "success": true
+              }
+            ],
+            "city_id": [
+              {
+                "expectationType": "expect_column_values_to_not_be_null",
+                "success": true
+              }
+            ]
+          }
+        }
+      },
+      "inEdges": [
+        {
+          "origin": "job:food_delivery:etl.etl_customers",
+          "destination": "dataset:food_delivery:public.customers"
+        }
+      ],
+      "outEdges": [
+        {
+          "origin": "dataset:food_delivery:public.customers",
+          "destination": "job:food_delivery:analytics.orders_popular_day_of_week"
+        },
+        {
+          "origin": "dataset:food_delivery:public.customers",
+          "destination": "job:food_delivery:emails.email_discounts"
+        },
+        {
+          "origin": "dataset:food_delivery:public.customers",
+          "destination": "job:food_delivery:etl.etl_delivery_7_days"
+        }
+      ]
+    },
+    {
+      "id": "dataset:food_delivery:public.delivery_7_days",
+      "type": "DATASET",
+      "data": {
+        "type": "DATASET",
+        "id": {
+          "namespace": "food_delivery",
+          "name": "public.delivery_7_days"
+        },
+        "type": "DB_TABLE",
+        "name": "public.delivery_7_days",
+        "physicalName": "public.delivery_7_days",
+        "createdAt": "2021-03-09T02:33:21.693799Z",
+        "updatedAt": "2021-08-25T05:16:11.925014Z",
+        "namespace": "food_delivery",
+        "sourceName": "analytics_db",
+        "fields": [
+          {
+            "name": "order_id",
+            "type": "INTEGER",
+            "tags": [],
+            "description": "The ID of the order."
+          },
+          {
+            "name": "order_placed_on",
+            "type": "TIMESTAMP",
+            "tags": [],
+            "description": "An ISO-8601 timestamp representing the date/time the order was placed."
+          },
+          {
+            "name": "order_dispatched_on",
+            "type": "TIMESTAMP",
+            "tags": [],
+            "description": "An ISO-8601 timestamp representing the date/time the order was dispatched."
+          },
+          {
+            "name": "order_delivered_on",
+            "type": "TIMESTAMP",
+            "tags": [],
+            "description": "An ISO-8601 timestamp representing the date/time the order was delivered."
+          },
+          {
+            "name": "customer_email",
+            "type": "VARCHAR",
+            "tags": [],
+            "description": "The email of the customer."
+          },
+          {
+            "name": "menu_id",
+            "type": "INTEGER",
+            "tags": [],
+            "description": "The ID of the menu related to the order."
+          },
+          {
+            "name": "menu_item_id",
+            "type": "INTEGER",
+            "tags": [],
+            "description": "The ID of the menu item related to the order."
+          },
+          {
+            "name": "category_id",
+            "type": "INTEGER",
+            "tags": [],
+            "description": "The ID of category related to the order."
+          },
+          {
+            "name": "discount_id",
+            "type": "VARCHAR",
+            "tags": [],
+            "description": "The ID of the discount applied to the order."
+          },
+          {
+            "name": "city_id",
+            "type": "INTEGER",
+            "tags": [],
+            "description": "The ID of the city related to the order."
+          },
+          {
+            "name": "driver_id",
+            "type": "INTEGER",
+            "tags": [],
+            "description": "The ID of the driver related to the order."
+          }
+        ],
+        "tags": [],
+        "lastModifiedAt": "2021-08-25T05:11:22.925014Z",
+        "description": null,
+        "latestMetrics": {
+          "rowCount": {
+            "count": 348705000
+          },
+          "bytes": {
+            "sum": 106976897920
+          }
+        },
+        "latestColumnMetrics": {
+          "order_dispatched_on": {
+            "distinctCount": {
+              "count": 451329
+            },
+            "nullCount": {
+              "count": 0
+            }
+          },
+          "customer_email": {
+            "distinctCount": {
+              "count": 29849736
+            },
+            "nullCount": {
+              "count": 0
+            }
+          },
+          "order_delivered_on": {
+            "distinctCount": {
+              "count": 451329
+            },
+            "nullCount": {
+              "count": 4478
+            }
+          },
+          "order_id": {
+            "distinctCount": {
+              "count": 348246915
+            },
+            "nullCount": {
+              "count": 0
+            }
+          },
+          "order_placed_on": {
+            "distinctCount": {
+              "count": 451329
+            },
+            "nullCount": {
+              "count": 0
+            }
+          }
+        },
+        "latestAssertions": {
+          "datasetExpectations": [
+            {
+              "expectationType": "expect_column_to_exist",
+              "success": true
+            },
+            {
+              "expectationType": "expect_table_row_count_to_be_between",
+              "success": true
+            }
+          ],
+          "columnExpectations": {
+            "driver_id": [
+              {
+                "expectationType": "expect_column_values_to_not_be_null",
+                "success": true
+              }
+            ],
+            "menu_item_id": [
+              {
+                "expectationType": "expect_column_values_to_not_be_null",
+                "success": true
+              }
+            ],
+            "category_id": [
+              {
+                "expectationType": "expect_column_values_to_not_be_null",
+                "success": true
+              }
+            ],
+            "order_dispatched_on": [
+              {
+                "expectationType": "expect_column_values_to_not_be_null",
+                "success": true
+              }
+            ],
+            "customer_email": [
+              {
+                "expectationType": "expect_column_values_to_match_regex",
+                "success": true
+              },
+              {
+                "expectationType": "expect_column_values_to_not_be_null",
+                "success": true
+              }
+            ],
+            "order_id": [
+              {
+                "expectationType": "expect_column_values_to_be_unique",
+                "success": true
+              },
+              {
+                "expectationType": "expect_column_values_to_not_be_null",
+                "success": true
+              }
+            ],
+            "menu_id": [
+              {
+                "expectationType": "expect_column_values_to_not_be_null",
+                "success": true
+              }
+            ],
+            "order_placed_on": [
+              {
+                "expectationType": "expect_column_values_to_not_be_null",
+                "success": true
+              }
+            ],
+            "city_id": [
+              {
+                "expectationType": "expect_column_values_to_not_be_null",
+                "success": true
+              }
+            ]
+          }
+        }
+      },
+      "inEdges": [
+        {
+          "origin": "job:food_delivery:etl.etl_delivery_7_days",
+          "destination": "dataset:food_delivery:public.delivery_7_days"
+        }
+      ],
+      "outEdges": [
+        {
+          "origin": "dataset:food_delivery:public.delivery_7_days",
+          "destination": "job:food_delivery:analytics.delivery_times_7_days"
+        }
+      ]
+    },
+    {
+      "id": "dataset:food_delivery:public.discounts",
+      "type": "DATASET",
+      "data": {
+        "type": "DATASET",
+        "id": {
+          "namespace": "food_delivery",
+          "name": "public.discounts"
+        },
+        "type": "DB_TABLE",
+        "name": "public.discounts",
+        "physicalName": "public.discounts",
+        "createdAt": "2021-03-09T02:33:22.070729Z",
+        "updatedAt": "2021-08-25T05:18:20.925014Z",
+        "namespace": "food_delivery",
+        "sourceName": "analytics_db",
+        "fields": [
+          {
+            "name": "id",
+            "type": "INTEGER",
+            "tags": [],
+            "description": "The unique ID of the discount."
+          },
+          {
+            "name": "amount_off",
+            "type": "INTEGER",
+            "tags": [],
+            "description": "The amount of the discount."
+          },
+          {
+            "name": "customer_email",
+            "type": "VARCHAR",
+            "tags": [],
+            "description": "The email of the customer."
+          },
+          {
+            "name": "starts_on",
+            "type": "TIMESTAMP",
+            "tags": [],
+            "description": "An ISO-8601 timestamp representing the date/time the discount starts."
+          },
+          {
+            "name": "ends_on",
+            "type": "TIMESTAMP",
+            "tags": [],
+            "description": "An ISO-8601 timestamp representing the date/time the discount ends."
+          }
+        ],
+        "tags": [],
+        "lastModifiedAt": "2021-08-25T05:16:11.925014Z",
+        "description": null,
+        "latestMetrics": {
+          "rowCount": {
+            "count": 4992500
+          },
+          "bytes": {
+            "sum": 5360656056
+          }
+        },
+        "latestColumnMetrics": {
+          "ends_on": {
+            "distinctCount": {
+              "count": 4952188
+            },
+            "nullCount": {
+              "count": 0
+            }
+          },
+          "customer_email": {
+            "distinctCount": {
+              "count": 4014838
+            },
+            "nullCount": {
+              "count": 0
+            }
+          },
+          "id": {
+            "distinctCount": {
+              "count": 4952188
+            },
+            "nullCount": {
+              "count": 0
+            }
+          },
+          "starts_on": {
+            "distinctCount": {
+              "count": 4952188
+            },
+            "nullCount": {
+              "count": 0
+            }
+          },
+          "amount_off": {
+            "distinctCount": {
+              "count": 1981
+            },
+            "values": {
+              "max": 19.808752,
+              "min": 0.99043757
+            },
+            "nullCount": {
+              "count": 0
+            }
+          }
+        },
+        "latestAssertions": {
+          "datasetExpectations": [
+            {
+              "expectationType": "expect_column_to_exist",
+              "success": true
+            },
+            {
+              "expectationType": "expect_table_row_count_to_be_between",
+              "success": true
+            }
+          ],
+          "columnExpectations": {
+            "ends_on": [
+              {
+                "expectationType": "expect_column_values_to_not_be_null",
+                "success": true
+              }
+            ],
+            "customer_email": [
+              {
+                "expectationType": "expect_column_values_to_match_regex",
+                "success": true
+              },
+              {
+                "expectationType": "expect_column_values_to_not_be_null",
+                "success": true
+              }
+            ],
+            "id": [
+              {
+                "expectationType": "expect_column_values_to_be_unique",
+                "success": true
+              },
+              {
+                "expectationType": "expect_column_values_to_not_be_null",
+                "success": true
+              }
+            ],
+            "starts_on": [
+              {
+                "expectationType": "expect_column_values_to_not_be_null",
+                "success": true
+              }
+            ],
+            "amount_off": [
+              {
+                "expectationType": "expect_column_values_to_not_be_null",
+                "success": true
+              }
+            ]
+          }
+        }
+      },
+      "inEdges": [
+        {
+          "origin": "job:food_delivery:analytics.delivery_times_7_days",
+          "destination": "dataset:food_delivery:public.discounts"
+        }
+      ],
+      "outEdges": [
+        {
+          "origin": "dataset:food_delivery:public.discounts",
+          "destination": "job:food_delivery:emails.email_discounts"
+        }
+      ]
+    },
+    {
+      "id": "dataset:food_delivery:public.drivers",
+      "type": "DATASET",
+      "data": {
+        "type": "DATASET",
+        "id": {
+          "namespace": "food_delivery",
+          "name": "public.drivers"
+        },
+        "type": "DB_TABLE",
+        "name": "public.drivers",
+        "physicalName": "public.drivers",
+        "createdAt": "2021-03-09T02:33:21.253785Z",
+        "updatedAt": "2021-08-25T05:11:22.925014Z",
+        "namespace": "food_delivery",
+        "sourceName": "analytics_db",
+        "fields": [
+          {
+            "name": "id",
+            "type": "INTEGER",
+            "tags": [],
+            "description": "The unique ID of the driver."
+          },
+          {
+            "name": "created_at",
+            "type": "TIMESTAMP",
+            "tags": [],
+            "description": "An ISO-8601 timestamp representing the date/time the driver was created."
+          },
+          {
+            "name": "updated_at",
+            "type": "TIMESTAMP",
+            "tags": [],
+            "description": "An ISO-8601 timestamp representing the date/time the driver was updated."
+          },
+          {
+            "name": "name",
+            "type": "VARCHAR",
+            "tags": [],
+            "description": "The name of the driver."
+          },
+          {
+            "name": "email",
+            "type": "VARCHAR",
+            "tags": [],
+            "description": "The email of the driver."
+          },
+          {
+            "name": "phone",
+            "type": "VARCHAR",
+            "tags": [],
+            "description": "The phone number of the driver."
+          },
+          {
+            "name": "car_make",
+            "type": "VARCHAR",
+            "tags": [],
+            "description": "The make of the car."
+          },
+          {
+            "name": "car_model",
+            "type": "VARCHAR",
+            "tags": [],
+            "description": "The model of the car."
+          },
+          {
+            "name": "car_year",
+            "type": "VARCHAR",
+            "tags": [],
+            "description": "The year of the car."
+          },
+          {
+            "name": "car_color",
+            "type": "VARCHAR",
+            "tags": [],
+            "description": "The color of the car."
+          },
+          {
+            "name": "car_license_plate",
+            "type": "VARCHAR",
+            "tags": [],
+            "description": "The license plate number of the car."
+          }
+        ],
+        "tags": [],
+        "lastModifiedAt": "2021-08-25T05:06:56.925014Z",
+        "description": null,
+        "latestMetrics": {
+          "rowCount": {
+            "count": 2984100
+          },
+          "bytes": {
+            "sum": 10680509924
+          }
+        },
+        "latestColumnMetrics": {
+          "name": {
+            "distinctCount": {
+              "count": 9825
+            },
+            "nullCount": {
+              "count": 0
+            }
+          },
+          "id": {
+            "distinctCount": {
+              "count": 2947327
+            },
+            "nullCount": {
+              "count": 0
+            }
+          },
+          "email": {
+            "distinctCount": {
+              "count": 2947327
+            },
+            "nullCount": {
+              "count": 0
+            }
+          }
+        },
+        "latestAssertions": {
+          "datasetExpectations": [
+            {
+              "expectationType": "expect_column_to_exist",
+              "success": true
+            },
+            {
+              "expectationType": "expect_table_row_count_to_be_between",
+              "success": true
+            }
+          ],
+          "columnExpectations": {
+            "updated_at": [
+              {
+                "expectationType": "expect_column_values_to_not_be_null",
+                "success": true
+              }
+            ],
+            "phone": [
+              {
+                "expectationType": "expect_column_values_to_not_be_null",
+                "success": true
+              }
+            ],
+            "car_license_plate": [
+              {
+                "expectationType": "expect_column_values_to_not_be_null",
+                "success": true
+              }
+            ],
+            "created_at": [
+              {
+                "expectationType": "expect_column_values_to_not_be_null",
+                "success": true
+              }
+            ],
+            "car_color": [
+              {
+                "expectationType": "expect_column_values_to_match_regex",
+                "success": true
+              },
+              {
+                "expectationType": "expect_column_values_to_not_be_null",
+                "success": true
+              }
+            ],
+            "id": [
+              {
+                "expectationType": "expect_column_values_to_be_unique",
+                "success": true
+              },
+              {
+                "expectationType": "expect_column_values_to_not_be_null",
+                "success": true
+              }
+            ],
+            "email": [
+              {
+                "expectationType": "expect_column_values_to_match_regex",
+                "success": true
+              },
+              {
+                "expectationType": "expect_column_values_to_not_be_null",
+                "success": true
+              }
+            ]
+          }
+        }
+      },
+      "inEdges": [
+        {
+          "origin": "job:food_delivery:etl.etl_drivers",
+          "destination": "dataset:food_delivery:public.drivers"
+        }
+      ],
+      "outEdges": [
+        {
+          "origin": "dataset:food_delivery:public.drivers",
+          "destination": "job:food_delivery:etl.etl_delivery_7_days"
+        }
+      ]
+    },
+    {
+      "id": "dataset:food_delivery:public.menu_items",
+      "type": "DATASET",
+      "data": {
+        "type": "DATASET",
+        "id": {
+          "namespace": "food_delivery",
+          "name": "public.menu_items"
+        },
+        "type": "DB_TABLE",
+        "name": "public.menu_items",
+        "physicalName": "public.menu_items",
+        "createdAt": "2021-03-09T02:33:18.959288Z",
+        "updatedAt": "2021-08-25T05:07:25.925014Z",
+        "namespace": "food_delivery",
+        "sourceName": "analytics_db",
+        "fields": [
+          {
+            "name": "id",
+            "type": "INTEGER",
+            "tags": [],
+            "description": "The unique ID of the menu item."
+          },
+          {
+            "name": "name",
+            "type": "VARCHAR",
+            "tags": [],
+            "description": "The name of the menu item."
+          },
+          {
+            "name": "price",
+            "type": "INTEGER",
+            "tags": [],
+            "description": "The price of the menu item."
+          },
+          {
+            "name": "category_id",
+            "type": "INTEGER",
+            "tags": [],
+            "description": "The ID of the category related to the item."
+          },
+          {
+            "name": "description",
+            "type": "TEXT",
+            "tags": [],
+            "description": "The description of the menu item."
+          }
+        ],
+        "tags": [],
+        "lastModifiedAt": "2021-08-25T05:03:51.925014Z",
+        "description": null,
+        "latestMetrics": {
+          "rowCount": {
+            "count": 14916000
+          },
+          "bytes": {
+            "sum": 53386443488
+          }
+        },
+        "latestColumnMetrics": {
+          "price": {
+            "distinctCount": {
+              "count": 199
+            },
+            "values": {
+              "max": 79.34297,
+              "min": 0.981992
+            },
+            "nullCount": {
+              "count": 0
+            }
+          },
+          "name": {
+            "distinctCount": {
+              "count": 9920
+            },
+            "nullCount": {
+              "count": 0
+            }
+          },
+          "id": {
+            "distinctCount": {
+              "count": 14878668
+            },
+            "nullCount": {
+              "count": 0
+            }
+          }
+        },
+        "latestAssertions": {
+          "datasetExpectations": [
+            {
+              "expectationType": "expect_column_to_exist",
+              "success": false
+            },
+            {
+              "expectationType": "expect_table_row_count_to_be_between",
+              "success": true
+            }
+          ],
+          "columnExpectations": {
+            "category_id": [
+              {
+                "expectationType": "expect_column_values_to_not_be_null",
+                "success": false
+              }
+            ],
+            "price": [
+              {
+                "expectationType": "expect_column_values_to_not_be_null",
+                "success": true
+              }
+            ],
+            "id": [
+              {
+                "expectationType": "expect_column_values_to_be_unique",
+                "success": false
+              },
+              {
+                "expectationType": "expect_column_values_to_not_be_null",
+                "success": true
+              }
+            ]
+          }
+        }
+      },
+      "inEdges": [
+        {
+          "origin": "job:food_delivery:etl_orders.etl_menu_items",
+          "destination": "dataset:food_delivery:public.menu_items"
+        }
+      ],
+      "outEdges": [
+        {
+          "origin": "dataset:food_delivery:public.menu_items",
+          "destination": "job:food_delivery:etl_orders.etl_orders_7_days"
+        }
+      ]
+    },
+    {
+      "id": "dataset:food_delivery:public.menus",
+      "type": "DATASET",
+      "data": {
+        "type": "DATASET",
+        "id": {
+          "namespace": "food_delivery",
+          "name": "public.menus"
+        },
+        "type": "DB_TABLE",
+        "name": "public.menus",
+        "physicalName": "public.menus",
+        "createdAt": "2021-03-09T02:33:17.948768Z",
+        "updatedAt": "2021-08-25T05:07:25.925014Z",
+        "namespace": "food_delivery",
+        "sourceName": "analytics_db",
+        "fields": [
+          {
+            "name": "id",
+            "type": "INTEGER",
+            "tags": [],
+            "description": "The unique ID of the menu."
+          },
+          {
+            "name": "name",
+            "type": "VARCHAR",
+            "tags": [],
+            "description": "The name of the menu."
+          },
+          {
+            "name": "restaurant_id",
+            "type": "INTEGER",
+            "tags": [],
+            "description": "The ID of the restaurant related to the menu."
+          },
+          {
+            "name": "description",
+            "type": "TEXT",
+            "tags": [],
+            "description": "The description of the menu."
+          }
+        ],
+        "tags": [],
+        "lastModifiedAt": "2021-08-25T05:02:28.925014Z",
+        "description": null,
+        "latestMetrics": {
+          "rowCount": {
+            "count": 99551
+          },
+          "bytes": {
+            "sum": 417542964
+          }
+        },
+        "latestColumnMetrics": {
+          "restaurant_id": {
+            "distinctCount": {
+              "count": 987353
+            },
+            "nullCount": {
+              "count": 0
+            }
+          },
+          "name": {
+            "distinctCount": {
+              "count": 49368
+            },
+            "nullCount": {
+              "count": 0
+            }
+          },
+          "id": {
+            "distinctCount": {
+              "count": 1283558
+            },
+            "nullCount": {
+              "count": 0
+            }
+          }
+        },
+        "latestAssertions": {
+          "datasetExpectations": [
+            {
+              "expectationType": "expect_column_to_exist",
+              "success": false
+            },
+            {
+              "expectationType": "expect_table_row_count_to_be_between",
+              "success": true
+            }
+          ],
+          "columnExpectations": {
+            "restaurant_id": [
+              {
+                "expectationType": "expect_column_values_to_not_be_null",
+                "success": true
+              }
+            ],
+            "name": [
+              {
+                "expectationType": "expect_column_value_lengths_to_be_between",
+                "success": true
+              }
+            ],
+            "description": [
+              {
+                "expectationType": "expect_column_values_to_not_be_null",
+                "success": false
+              }
+            ],
+            "id": [
+              {
+                "expectationType": "expect_column_values_to_be_unique",
+                "success": true
+              },
+              {
+                "expectationType": "expect_column_values_to_not_be_null",
+                "success": true
+              }
+            ]
+          }
+        }
+      },
+      "inEdges": [
+        {
+          "origin": "job:food_delivery:etl_orders.etl_menus",
+          "destination": "dataset:food_delivery:public.menus"
+        }
+      ],
+      "outEdges": [
+        {
+          "origin": "dataset:food_delivery:public.menus",
+          "destination": "job:food_delivery:etl_orders.etl_orders_7_days"
+        }
+      ]
+    },
+    {
+      "id": "dataset:food_delivery:public.order_status",
+      "type": "DATASET",
+      "data": {
+        "type": "DATASET",
+        "id": {
+          "namespace": "food_delivery",
+          "name": "public.order_status"
+        },
+        "type": "DB_TABLE",
+        "name": "public.order_status",
+        "physicalName": "public.order_status",
+        "createdAt": "2021-03-09T02:33:20.488093Z",
+        "updatedAt": "2021-08-25T05:11:22.925014Z",
+        "namespace": "food_delivery",
+        "sourceName": "analytics_db",
+        "fields": [
+          {
+            "name": "id",
+            "type": "INTEGER",
+            "tags": [],
+            "description": "The unique ID of the order status."
+          },
+          {
+            "name": "transitioned_at",
+            "type": "TIMESTAMP",
+            "tags": [],
+            "description": "An ISO-8601 timestamp representing the date/time the order status was transitioned."
+          },
+          {
+            "name": "status",
+            "type": "VARCHAR",
+            "tags": [],
+            "description": "The status of the order status."
+          },
+          {
+            "name": "order_id",
+            "type": "INTEGER",
+            "tags": [],
+            "description": "The ID of the order related to the order status."
+          },
+          {
+            "name": "customer_id",
+            "type": "INTEGER",
+            "tags": [],
+            "description": "The ID of the customer related to the order status."
+          },
+          {
+            "name": "restaurant_id",
+            "type": "INTEGER",
+            "tags": [],
+            "description": "The ID of the restaurant related to the order status."
+          },
+          {
+            "name": "driver_id",
+            "type": "INTEGER",
+            "tags": [],
+            "description": "The ID of the driver related to the order status."
+          }
+        ],
+        "tags": [],
+        "lastModifiedAt": "2021-08-25T05:08:03.925014Z",
+        "description": null,
+        "latestMetrics": {
+          "rowCount": {
+            "count": 49570000
+          },
+          "bytes": {
+            "sum": 21290152880
+          }
+        },
+        "latestColumnMetrics": {
+          "restaurant_id": {
+            "distinctCount": {
+              "count": 897069
+            },
+            "nullCount": {
+              "count": 0
+            }
+          },
+          "id": {
+            "distinctCount": {
+              "count": 49948120
+            },
+            "nullCount": {
+              "count": 0
+            }
+          },
+          "customer_id": {
+            "distinctCount": {
+              "count": 49948120
+            },
+            "nullCount": {
+              "count": 0
+            }
+          },
+          "order_id": {
+            "distinctCount": {
+              "count": 49948120
+            },
+            "nullCount": {
+              "count": 0
+            }
+          }
+        },
+        "latestAssertions": {
+          "datasetExpectations": [
+            {
+              "expectationType": "expect_column_to_exist",
+              "success": true
+            },
+            {
+              "expectationType": "expect_column_pair_values_to_be_equal",
+              "success": true
+            },
+            {
+              "expectationType": "expect_table_row_count_to_be_between",
+              "success": true
+            }
+          ],
+          "columnExpectations": {
+            "driver_id": [
+              {
+                "expectationType": "expect_column_values_to_not_be_null",
+                "success": true
+              }
+            ],
+            "transitioned_at": [
+              {
+                "expectationType": "expect_column_values_to_not_be_null",
+                "success": true
+              }
+            ],
+            "restaurant_id": [
+              {
+                "expectationType": "expect_column_values_to_not_be_null",
+                "success": true
+              }
+            ],
+            "id": [
+              {
+                "expectationType": "expect_column_values_to_be_unique",
+                "success": true
+              },
+              {
+                "expectationType": "expect_column_values_to_not_be_null",
+                "success": true
+              }
+            ],
+            "customer_id": [
+              {
+                "expectationType": "expect_column_values_to_not_be_null",
+                "success": true
+              }
+            ],
+            "order_id": [
+              {
+                "expectationType": "expect_column_values_to_not_be_null",
+                "success": true
+              }
+            ],
+            "status": [
+              {
+                "expectationType": "expect_column_values_to_not_be_null",
+                "success": true
+              }
+            ]
+          }
+        }
+      },
+      "inEdges": [
+        {
+          "origin": "job:food_delivery:etl.etl_order_status",
+          "destination": "dataset:food_delivery:public.order_status"
+        }
+      ],
+      "outEdges": [
+        {
+          "origin": "dataset:food_delivery:public.order_status",
+          "destination": "job:food_delivery:etl.etl_delivery_7_days"
+        }
+      ]
+    },
+    {
+      "id": "dataset:food_delivery:public.orders",
+      "type": "DATASET",
+      "data": {
+        "type": "DATASET",
+        "id": {
+          "namespace": "food_delivery",
+          "name": "public.orders"
+        },
+        "type": "DB_TABLE",
+        "name": "public.orders",
+        "physicalName": "public.orders",
+        "createdAt": "2021-03-09T02:33:16.472042Z",
+        "updatedAt": "2021-08-25T05:07:25.925014Z",
+        "namespace": "food_delivery",
+        "sourceName": "analytics_db",
+        "fields": [
+          {
+            "name": "id",
+            "type": "INTEGER",
+            "tags": [],
+            "description": "The unique ID of the order."
+          },
+          {
+            "name": "placed_on",
+            "type": "TIMESTAMP",
+            "tags": [],
+            "description": "An ISO-8601 timestamp representing the date/time the order was placed."
+          },
+          {
+            "name": "menu_item_id",
+            "type": "INTEGER",
+            "tags": [],
+            "description": "The ID of the menu item related to the order."
+          },
+          {
+            "name": "quantity",
+            "type": "INTEGER",
+            "tags": [],
+            "description": "The number of the item in the order."
+          },
+          {
+            "name": "discount_id",
+            "type": "INTEGER",
+            "tags": [],
+            "description": "The unique ID of the discount applied to the order."
+          },
+          {
+            "name": "comment",
+            "type": "VARCHAR",
+            "tags": [],
+            "description": "The comment of the order."
+          }
+        ],
+        "tags": [],
+        "lastModifiedAt": "2021-08-25T05:04:06.925014Z",
+        "description": null,
+        "latestMetrics": {
+          "rowCount": {
+            "count": 49925000
+          },
+          "bytes": {
+            "sum": 21442624224
+          }
+        },
+        "latestColumnMetrics": {
+          "menu_item_id": {
+            "distinctCount": {
+              "count": 49144
+            },
+            "nullCount": {
+              "count": 0
+            }
+          },
+          "quantity": {
+            "distinctCount": {
+              "count": 20
+            },
+            "values": {
+              "max": 29.48609,
+              "min": 0.9828696
+            },
+            "nullCount": {
+              "count": 0
+            }
+          },
+          "placed_on": {
+            "distinctCount": {
+              "count": 63690
+            },
+            "nullCount": {
+              "count": 0
+            }
+          },
+          "discount_id": {
+            "distinctCount": {
+              "count": 1966
+            },
+            "nullCount": {
+              "count": 39314786
+            }
+          }
+        },
+        "latestAssertions": {
+          "datasetExpectations": [
+            {
+              "expectationType": "expect_column_to_exist",
+              "success": true
+            },
+            {
+              "expectationType": "expect_table_row_count_to_be_between",
+              "success": true
+            }
+          ],
+          "columnExpectations": {
+            "menu_item_id": [
+              {
+                "expectationType": "expect_column_values_to_not_be_null",
+                "success": true
+              }
+            ],
+            "quantity": [
+              {
+                "expectationType": "expect_column_values_to_be_between",
+                "success": true
+              }
+            ],
+            "placed_on": [
+              {
+                "expectationType": "expect_column_values_to_be_dateutil_parseable",
+                "success": true
+              }
+            ],
+            "id": [
+              {
+                "expectationType": "expect_column_values_to_be_unique",
+                "success": false
+              },
+              {
+                "expectationType": "expect_column_values_to_not_be_null",
+                "success": true
+              }
+            ]
+          }
+        }
+      },
+      "inEdges": [
+        {
+          "origin": "job:food_delivery:etl_orders.etl_orders",
+          "destination": "dataset:food_delivery:public.orders"
+        }
+      ],
+      "outEdges": [
+        {
+          "origin": "dataset:food_delivery:public.orders",
+          "destination": "job:food_delivery:etl_orders.etl_orders_7_days"
+        }
+      ]
+    },
+    {
+      "id": "dataset:food_delivery:public.orders_7_days",
+      "type": "DATASET",
+      "data": {
+        "type": "DATASET",
+        "id": {
+          "namespace": "food_delivery",
+          "name": "public.orders_7_days"
+        },
+        "type": "DB_TABLE",
+        "name": "public.orders_7_days",
+        "physicalName": "public.orders_7_days",
+        "createdAt": "2021-03-09T02:33:20.794369Z",
+        "updatedAt": "2021-08-25T05:11:22.925014Z",
+        "namespace": "food_delivery",
+        "sourceName": "analytics_db",
+        "fields": [
+          {
+            "name": "order_id",
+            "type": "INTEGER",
+            "tags": [],
+            "description": "The ID of the order."
+          },
+          {
+            "name": "placed_on",
+            "type": "TIMESTAMP",
+            "tags": [],
+            "description": "An ISO-8601 timestamp representing the date/time the order was placed."
+          },
+          {
+            "name": "menu_id",
+            "type": "VARCHAR",
+            "tags": [],
+            "description": "The ID of the menu related to the order."
+          },
+          {
+            "name": "menu_item_id",
+            "type": "INTEGER",
+            "tags": [],
+            "description": "The ID of the menu item related to the order."
+          },
+          {
+            "name": "category_id",
+            "type": "INTEGER",
+            "tags": [],
+            "description": "The ID of category related to the order."
+          },
+          {
+            "name": "discount_id",
+            "type": "INTEGER",
+            "tags": [],
+            "description": "The ID of the discount applied to the order."
+          },
+          {
+            "name": "city_id",
+            "type": "INTEGER",
+            "tags": [],
+            "description": "The ID of the city related to the order."
+          }
+        ],
+        "tags": [],
+        "lastModifiedAt": "2021-08-25T05:07:25.925014Z",
+        "description": null,
+        "latestMetrics": {
+          "rowCount": {
+            "count": 346535000
+          },
+          "bytes": {
+            "sum": 106311177984
+          }
+        },
+        "latestColumnMetrics": {
+          "menu_item_id": {
+            "distinctCount": {
+              "count": 99063
+            },
+            "nullCount": {
+              "count": 0
+            }
+          },
+          "placed_on": {
+            "distinctCount": {
+              "count": 449349
+            },
+            "nullCount": {
+              "count": 0
+            }
+          },
+          "order_id": {
+            "distinctCount": {
+              "count": 346719681
+            },
+            "nullCount": {
+              "count": 0
+            }
+          },
+          "menu_id": {
+            "distinctCount": {
+              "count": 1089691
+            },
+            "nullCount": {
+              "count": 0
+            }
+          },
+          "city_id": {
+            "distinctCount": {
+              "count": 298
+            },
+            "nullCount": {
+              "count": 0
+            }
+          },
+          "discount_id": {
+            "distinctCount": {
+              "count": 99063
+            },
+            "nullCount": {
+              "count": 297188298
+            }
+          }
+        },
+        "latestAssertions": {
+          "datasetExpectations": [
+            {
+              "expectationType": "expect_column_to_exist",
+              "success": true
+            },
+            {
+              "expectationType": "expect_table_row_count_to_be_between",
+              "success": true
+            }
+          ],
+          "columnExpectations": {
+            "menu_item_id": [
+              {
+                "expectationType": "expect_column_values_to_not_be_null",
+                "success": true
+              }
+            ],
+            "category_id": [
+              {
+                "expectationType": "expect_column_values_to_not_be_null",
+                "success": true
+              }
+            ],
+            "placed_on": [
+              {
+                "expectationType": "expect_column_values_to_not_be_null",
+                "success": true
+              }
+            ],
+            "order_id": [
+              {
+                "expectationType": "expect_column_values_to_be_unique",
+                "success": true
+              },
+              {
+                "expectationType": "expect_column_values_to_not_be_null",
+                "success": true
+              }
+            ],
+            "menu_id": [
+              {
+                "expectationType": "expect_column_values_to_not_be_null",
+                "success": true
+              }
+            ],
+            "city_id": [
+              {
+                "expectationType": "expect_column_values_to_not_be_null",
+                "success": true
+              }
+            ]
+          }
+        }
+      },
+      "inEdges": [
+        {
+          "origin": "job:food_delivery:etl_orders.etl_orders_7_days",
+          "destination": "dataset:food_delivery:public.orders_7_days"
+        }
+      ],
+      "outEdges": [
+        {
+          "origin": "dataset:food_delivery:public.orders_7_days",
+          "destination": "job:food_delivery:etl.etl_delivery_7_days"
+        }
+      ]
+    },
+    {
+      "id": "dataset:food_delivery:public.popular_orders_day_of_week",
+      "type": "DATASET",
+      "data": {
+        "type": "DATASET",
+        "id": {
+          "namespace": "food_delivery",
+          "name": "public.popular_orders_day_of_week"
+        },
+        "type": "DB_TABLE",
+        "name": "public.popular_orders_day_of_week",
+        "physicalName": "public.popular_orders_day_of_week",
+        "createdAt": "2021-03-09T02:33:22.794238Z",
+        "updatedAt": "2021-08-25T05:03:19.036199Z",
+        "namespace": "food_delivery",
+        "sourceName": "analytics_db",
+        "fields": [
+          {
+            "name": "order_day_of_week",
+            "type": "VARCHAR",
+            "tags": [],
+            "description": "The day of week of the order."
+          },
+          {
+            "name": "order_placed_on",
+            "type": "TIMESTAMP",
+            "tags": [],
+            "description": "An ISO-8601 timestamp representing the date/time the order was placed."
+          },
+          {
+            "name": "orders_placed",
+            "type": "INTEGER",
+            "tags": [],
+            "description": "The number of orders placed on day of week."
+          }
+        ],
+        "tags": [],
+        "lastModifiedAt": "2021-08-25T05:19:10.925014Z",
+        "description": null,
+        "latestMetrics": {
+          "rowCount": {
+            "count": 99620
+          },
+          "bytes": {
+            "sum": 1069661605
+          }
+        },
+        "latestColumnMetrics": null,
+        "latestAssertions": {
+          "datasetExpectations": [],
+          "columnExpectations": {}
+        }
+      },
+      "inEdges": [
+        {
+          "origin": "job:food_delivery:analytics.orders_popular_day_of_week",
+          "destination": "dataset:food_delivery:public.popular_orders_day_of_week"
+        }
+      ],
+      "outEdges": []
+    },
+    {
+      "id": "dataset:food_delivery:public.restaurants",
+      "type": "DATASET",
+      "data": {
+        "type": "DATASET",
+        "id": {
+          "namespace": "food_delivery",
+          "name": "public.restaurants"
+        },
+        "type": "DB_TABLE",
+        "name": "public.restaurants",
+        "physicalName": "public.restaurants",
+        "createdAt": "2021-03-09T02:33:19.475385Z",
+        "updatedAt": "2021-08-25T05:11:22.925014Z",
+        "namespace": "food_delivery",
+        "sourceName": "analytics_db",
+        "fields": [
+          {
+            "name": "id",
+            "type": "INTEGER",
+            "tags": [],
+            "description": "The unique ID of the restaurant."
+          },
+          {
+            "name": "created_at",
+            "type": "TIMESTAMP",
+            "tags": [],
+            "description": "An ISO-8601 timestamp representing the date/time the restaurant was created."
+          },
+          {
+            "name": "updated_at",
+            "type": "TIMESTAMP",
+            "tags": [],
+            "description": "An ISO-8601 timestamp representing the date/time the restaurant was updated."
+          },
+          {
+            "name": "name",
+            "type": "VARCHAR",
+            "tags": [],
+            "description": "The name of the restaurant."
+          },
+          {
+            "name": "email",
+            "type": "VARCHAR",
+            "tags": [],
+            "description": "The email address of the customer."
+          },
+          {
+            "name": "address",
+            "type": "VARCHAR",
+            "tags": [],
+            "description": "The address of the restaurant."
+          },
+          {
+            "name": "phone",
+            "type": "VARCHAR",
+            "tags": [],
+            "description": "The phone number of the restaurant."
+          },
+          {
+            "name": "city_id",
+            "type": "INTEGER",
+            "tags": [],
+            "description": "The ID of the city related to the restaurant."
+          },
+          {
+            "name": "business_hours_id",
+            "type": "INTEGER",
+            "tags": [],
+            "description": "The ID of the business hours related to the restaurant."
+          },
+          {
+            "name": "description",
+            "type": "TEXT",
+            "tags": [],
+            "description": "The description of the restaurant."
+          }
+        ],
+        "tags": [],
+        "lastModifiedAt": "2021-08-25T05:08:07.925014Z",
+        "description": null,
+        "latestMetrics": {
+          "rowCount": {
+            "count": 997800
+          },
+          "bytes": {
+            "sum": 11449591840
+          }
+        },
+        "latestColumnMetrics": {
+          "name": {
+            "distinctCount": {
+              "count": 9806
+            },
+            "nullCount": {
+              "count": 0
+            }
+          },
+          "id": {
+            "distinctCount": {
+              "count": 980520
+            },
+            "nullCount": {
+              "count": 0
+            }
+          },
+          "email": {
+            "distinctCount": {
+              "count": 980520
+            },
+            "nullCount": {
+              "count": 0
+            }
+          },
+          "city_id": {
+            "distinctCount": {
+              "count": 295
+            },
+            "nullCount": {
+              "count": 0
+            }
+          }
+        },
+        "latestAssertions": {
+          "datasetExpectations": [
+            {
+              "expectationType": "expect_column_to_exist",
+              "success": true
+            },
+            {
+              "expectationType": "expect_table_row_count_to_be_between",
+              "success": true
+            }
+          ],
+          "columnExpectations": {
+            "phone": [
+              {
+                "expectationType": "expect_column_values_to_not_be_null",
+                "success": true
+              }
+            ],
+            "id": [
+              {
+                "expectationType": "expect_column_values_to_be_unique",
+                "success": true
+              },
+              {
+                "expectationType": "expect_column_values_to_not_be_null",
+                "success": true
+              }
+            ],
+            "email": [
+              {
+                "expectationType": "expect_column_values_to_match_regex",
+                "success": true
+              }
+            ],
+            "city_id": [
+              {
+                "expectationType": "expect_column_values_to_not_be_null",
+                "success": true
+              }
+            ]
+          }
+        }
+      },
+      "inEdges": [
+        {
+          "origin": "job:food_delivery:etl.etl_restaurants",
+          "destination": "dataset:food_delivery:public.restaurants"
+        }
+      ],
+      "outEdges": [
+        {
+          "origin": "dataset:food_delivery:public.restaurants",
+          "destination": "job:food_delivery:etl.etl_delivery_7_days"
+        }
+      ]
+    },
+    {
+      "id": "dataset:food_delivery:public.top_delivery_times",
+      "type": "DATASET",
+      "data": {
+        "type": "DATASET",
+        "id": {
+          "namespace": "food_delivery",
+          "name": "public.top_delivery_times"
+        },
+        "type": "DB_TABLE",
+        "name": "public.top_delivery_times",
+        "physicalName": "public.top_delivery_times",
+        "createdAt": "2021-03-09T02:33:22.352665Z",
+        "updatedAt": "2021-08-25T05:19:10.925014Z",
+        "namespace": "food_delivery",
+        "sourceName": "analytics_db",
+        "fields": [
+          {
+            "name": "order_id",
+            "type": "INTEGER",
+            "tags": [],
+            "description": "The ID of the order."
+          },
+          {
+            "name": "order_placed_on",
+            "type": "TIMESTAMP",
+            "tags": [],
+            "description": "An ISO-8601 timestamp representing the date/time the order was placed."
+          },
+          {
+            "name": "order_dispatched_on",
+            "type": "TIMESTAMP",
+            "tags": [],
+            "description": "An ISO-8601 timestamp representing the date/time the order was dispatched."
+          },
+          {
+            "name": "order_delivered_on",
+            "type": "TIMESTAMP",
+            "tags": [],
+            "description": "An ISO-8601 timestamp representing the date/time the order was delivered."
+          },
+          {
+            "name": "order_delivered_time",
+            "type": "TIMESTAMP",
+            "tags": [],
+            "description": "An ISO-8601 timestamp representing the total time of delivery."
+          },
+          {
+            "name": "customer_email",
+            "type": "VARCHAR",
+            "tags": [],
+            "description": "The email of the customer."
+          },
+          {
+            "name": "restaurant_id",
+            "type": "INTEGER",
+            "tags": [],
+            "description": "The ID of the restaurant related to the order."
+          },
+          {
+            "name": "driver_id",
+            "type": "INTEGER",
+            "tags": [],
+            "description": "The ID of the driver related to the order."
+          }
+        ],
+        "tags": [],
+        "lastModifiedAt": "2021-08-25T05:16:11.925014Z",
+        "description": null,
+        "latestMetrics": {
+          "rowCount": {
+            "count": 99260
+          },
+          "bytes": {
+            "sum": 1065796135
+          }
+        },
+        "latestColumnMetrics": {
+          "driver_id": {
+            "distinctCount": {
+              "count": 16842
+            },
+            "nullCount": {
+              "count": 0
+            }
+          },
+          "order_delivered_time": {
+            "distinctCount": {
+              "count": 397
+            },
+            "values": {
+              "max": 3567.2068,
+              "min": 1843.1683
+            },
+            "nullCount": {
+              "count": 0
+            }
+          },
+          "order_dispatched_on": {
+            "distinctCount": {
+              "count": 66376
+            },
+            "nullCount": {
+              "count": 0
+            }
+          },
+          "restaurant_id": {
+            "distinctCount": {
+              "count": 22786
+            },
+            "nullCount": {
+              "count": 0
+            }
+          },
+          "customer_email": {
+            "distinctCount": {
+              "count": 86190
+            },
+            "nullCount": {
+              "count": 0
+            }
+          },
+          "order_delivered_on": {
+            "distinctCount": {
+              "count": 66376
+            },
+            "nullCount": {
+              "count": 0
+            }
+          },
+          "order_id": {
+            "distinctCount": {
+              "count": 99069
+            },
+            "nullCount": {
+              "count": 0
+            }
+          },
+          "order_placed_on": {
+            "distinctCount": {
+              "count": 66376
+            },
+            "nullCount": {
+              "count": 0
+            }
+          }
+        },
+        "latestAssertions": {
+          "datasetExpectations": [
+            {
+              "expectationType": "expect_column_to_exist",
+              "success": true
+            },
+            {
+              "expectationType": "expect_table_row_count_to_be_between",
+              "success": true
+            }
+          ],
+          "columnExpectations": {
+            "driver_id": [
+              {
+                "expectationType": "expect_column_values_to_not_be_null",
+                "success": true
+              }
+            ],
+            "order_delivered_time": [
+              {
+                "expectationType": "expect_column_values_to_not_be_null",
+                "success": true
+              }
+            ],
+            "order_dispatched_on": [
+              {
+                "expectationType": "expect_column_values_to_not_be_null",
+                "success": true
+              }
+            ],
+            "restaurant_id": [
+              {
+                "expectationType": "expect_column_values_to_not_be_null",
+                "success": true
+              }
+            ],
+            "customer_email": [
+              {
+                "expectationType": "expect_column_values_to_match_regex",
+                "success": true
+              },
+              {
+                "expectationType": "expect_column_values_to_not_be_null",
+                "success": true
+              }
+            ],
+            "order_delivered_on": [
+              {
+                "expectationType": "expect_column_values_to_not_be_null",
+                "success": true
+              }
+            ],
+            "order_id": [
+              {
+                "expectationType": "expect_column_values_to_be_unique",
+                "success": true
+              },
+              {
+                "expectationType": "expect_column_values_to_not_be_null",
+                "success": true
+              }
+            ],
+            "order_placed_on": [
+              {
+                "expectationType": "expect_column_values_to_not_be_null",
+                "success": true
+              }
+            ]
+          }
+        }
+      },
+      "inEdges": [
+        {
+          "origin": "job:food_delivery:analytics.delivery_times_7_days",
+          "destination": "dataset:food_delivery:public.top_delivery_times"
+        }
+      ],
+      "outEdges": [
+        {
+          "origin": "dataset:food_delivery:public.top_delivery_times",
+          "destination": "job:food_delivery:analytics.orders_popular_day_of_week"
+        }
+      ]
+    },
+    {
+      "id": "job:food_delivery:analytics.delivery_times_7_days",
+      "type": "JOB",
+      "data": {
+        "type": "JOB",
+        "id": {
+          "namespace": "food_delivery",
+          "name": "analytics.delivery_times_7_days"
+        },
+        "type": "BATCH",
+        "name": "analytics.delivery_times_7_days",
+        "createdAt": "2021-07-21T05:00:12.458719Z",
+        "updatedAt": "2021-08-25T05:16:11.925014Z",
+        "namespace": "food_delivery",
+        "inputs": [
+          {
+            "namespace": "food_delivery",
+            "name": "public.delivery_7_days"
+          }
+        ],
+        "outputs": [
+          {
+            "namespace": "food_delivery",
+            "name": "public.top_delivery_times"
+          },
+          {
+            "namespace": "food_delivery",
+            "name": "public.discounts"
+          }
+        ],
+        "location": "https://github.com/DatakinHQ/demo/blob/bd6303a76f4fa432d0853a07bb2e4b6d95bd0c49/airflow/dags/delivery_times_7_days.py",
+        "context": {
+          "job.facets.sourceCodeLocation.url": "https://github.com/DatakinHQ/demo/blob/bd6303a76f4fa432d0853a07bb2e4b6d95bd0c49/airflow/dags/delivery_times_7_days.py",
+          "sql": "INSERT INTO top_delivery_times (order_id, order_placed_on, order_dispatched_on, order_delivered_on, order_delivery_time,\n    customer_email, restaurant_id, driver_id)\n  SELECT order_id, order_placed_on, order_delivered_on, DATEDIFF(minute, order_placed_on, order_delivered_on) AS order_delivery_time,\n    customer_email, restaurant_id, driver_id\n    FROM delivery_7_days\nGROUP BY restaurant_id\nORDER BY order_delivery_time DESC\n   LIMIT 1;"
+        },
+        "description": "Determine weekly top delivery times by restaurant.",
+        "latestRun": {
+          "id": "c1346896-352a-47e7-b1cd-c08aa8b62726",
+          "createdAt": "2021-08-25T05:03:17.633261Z",
+          "updatedAt": "2021-08-25T05:16:11.925014Z",
+          "nominalStartTime": "2021-08-25T05:12:00Z",
+          "nominalEndTime": "2021-08-25T05:16:00Z",
+          "state": "FAILED",
+          "startedAt": "2021-08-25T05:12:19.925014Z",
+          "endedAt": "2021-08-25T05:16:11.925014Z",
+          "durationMs": 232000,
+          "args": {},
+          "jobVersion": {
+            "namespace": "food_delivery",
+            "name": "analytics.delivery_times_7_days",
+            "version": "41945ccd-36d0-3eb4-b3dd-a78fdf78aa79"
+          },
+          "inputVersions": [
+            {
+              "namespace": "food_delivery",
+              "name": "public.delivery_7_days",
+              "version": "e91e2e97-5cf6-3cd6-aa20-7a986cc72388"
+            }
+          ],
+          "outputVersions": [
+            {
+              "namespace": "food_delivery",
+              "name": "public.top_delivery_times",
+              "version": "b0c4abd1-fff6-36b6-bbf9-b298fc367ea2"
+            },
+            {
+              "namespace": "food_delivery",
+              "name": "public.discounts",
+              "version": "aafccfff-37be-3703-9b14-1d64cff1bd28"
+            }
+          ],
+          "context": {
+            "job.facets.sourceCodeLocation.url": "https://github.com/DatakinHQ/demo/blob/bd6303a76f4fa432d0853a07bb2e4b6d95bd0c49/airflow/dags/delivery_times_7_days.py",
+            "sql": "INSERT INTO top_delivery_times (order_id, order_placed_on, order_dispatched_on, order_delivered_on, order_delivery_time,\n    customer_email, restaurant_id, driver_id)\n  SELECT order_id, order_placed_on, order_delivered_on, DATEDIFF(minute, order_placed_on, order_delivered_on) AS order_delivery_time,\n    customer_email, restaurant_id, driver_id\n    FROM delivery_7_days\nGROUP BY restaurant_id\nORDER BY order_delivery_time DESC\n   LIMIT 1;"
+          },
+          "facets": {
+            "nominalTime": {
+              "nominalEndTime": "2021-08-25T05:16:00Z",
+              "nominalStartTime": "2021-08-25T05:12:00Z"
+            }
+          }
+        }
+      },
+      "inEdges": [
+        {
+          "origin": "dataset:food_delivery:public.delivery_7_days",
+          "destination": "job:food_delivery:analytics.delivery_times_7_days"
+        }
+      ],
+      "outEdges": [
+        {
+          "origin": "job:food_delivery:analytics.delivery_times_7_days",
+          "destination": "dataset:food_delivery:public.discounts"
+        },
+        {
+          "origin": "job:food_delivery:analytics.delivery_times_7_days",
+          "destination": "dataset:food_delivery:public.top_delivery_times"
+        }
+      ]
+    },
+    {
+      "id": "job:food_delivery:analytics.orders_popular_day_of_week",
+      "type": "JOB",
+      "data": {
+        "type": "JOB",
+        "id": {
+          "namespace": "food_delivery",
+          "name": "analytics.orders_popular_day_of_week"
+        },
+        "type": "BATCH",
+        "name": "analytics.orders_popular_day_of_week",
+        "createdAt": "2021-07-21T05:00:12.665794Z",
+        "updatedAt": "2021-08-25T05:19:10.925014Z",
+        "namespace": "food_delivery",
+        "inputs": [
+          {
+            "namespace": "food_delivery",
+            "name": "public.top_delivery_times"
+          },
+          {
+            "namespace": "food_delivery",
+            "name": "public.customers"
+          }
+        ],
+        "outputs": [
+          {
+            "namespace": "food_delivery",
+            "name": "public.popular_orders_day_of_week"
+          }
+        ],
+        "location": "https://github.com/DatakinHQ/demo/blob/bd6303a76f4fa432d0853a07bb2e4b6d95bd0c49/airflow/dags/orders_popular_day_of_week.py",
+        "context": {
+          "job.facets.sourceCodeLocation.url": "https://github.com/DatakinHQ/demo/blob/bd6303a76f4fa432d0853a07bb2e4b6d95bd0c49/airflow/dags/orders_popular_day_of_week.py",
+          "sql": "INSERT INTO popular_orders_day_of_week (order_day_of_week, order_placed_on, orders_placed)\n  SELECT order_day_of_week, order_placed_on, COUNT(*)\n    FROM top_delivery_times;"
+        },
+        "description": "Determines the popular day of week orders are placed.",
+        "latestRun": {
+          "id": "a0859af8-ecef-448c-8cd9-0219c7e2f8bc",
+          "createdAt": "2021-08-25T05:03:18.519150Z",
+          "updatedAt": "2021-08-25T05:19:10.925014Z",
+          "nominalStartTime": "2021-08-25T05:16:00Z",
+          "nominalEndTime": "2021-08-25T05:19:00Z",
+          "state": "COMPLETED",
+          "startedAt": "2021-08-25T05:16:19.925014Z",
+          "endedAt": "2021-08-25T05:19:10.925014Z",
+          "durationMs": 171000,
+          "args": {},
+          "jobVersion": {
+            "namespace": "food_delivery",
+            "name": "analytics.orders_popular_day_of_week",
+            "version": "a9ab4908-971d-3989-b2ae-1f3c61a52f9e"
+          },
+          "inputVersions": [
+            {
+              "namespace": "food_delivery",
+              "name": "public.top_delivery_times",
+              "version": "b180f6de-8cad-3687-a4bb-c394189d5f0a"
+            },
+            {
+              "namespace": "food_delivery",
+              "name": "public.customers",
+              "version": "d1fe1543-4ab1-3625-910d-c00ef77ee362"
+            }
+          ],
+          "outputVersions": [
+            {
+              "namespace": "food_delivery",
+              "name": "public.popular_orders_day_of_week",
+              "version": "36557d66-2fc4-3117-a052-fca74af4cae0"
+            },
+            {
+              "namespace": "food_delivery",
+              "name": "public.popular_orders_day_of_week",
+              "version": "b8cced81-c2d1-3e43-972e-696dca50a96d"
+            }
+          ],
+          "context": {
+            "job.facets.sourceCodeLocation.url": "https://github.com/DatakinHQ/demo/blob/bd6303a76f4fa432d0853a07bb2e4b6d95bd0c49/airflow/dags/orders_popular_day_of_week.py",
+            "sql": "INSERT INTO popular_orders_day_of_week (order_day_of_week, order_placed_on, orders_placed)\n  SELECT order_day_of_week, order_placed_on, COUNT(*)\n    FROM top_delivery_times;"
+          },
+          "facets": {
+            "nominalTime": {
+              "nominalEndTime": "2021-08-25T05:19:00Z",
+              "nominalStartTime": "2021-08-25T05:16:00Z"
+            }
+          }
+        }
+      },
+      "inEdges": [
+        {
+          "origin": "dataset:food_delivery:public.customers",
+          "destination": "job:food_delivery:analytics.orders_popular_day_of_week"
+        },
+        {
+          "origin": "dataset:food_delivery:public.top_delivery_times",
+          "destination": "job:food_delivery:analytics.orders_popular_day_of_week"
+        }
+      ],
+      "outEdges": [
+        {
+          "origin": "job:food_delivery:analytics.orders_popular_day_of_week",
+          "destination": "dataset:food_delivery:public.popular_orders_day_of_week"
+        }
+      ]
+    },
+    {
+      "id": "job:food_delivery:emails.email_discounts",
+      "type": "JOB",
+      "data": {
+        "type": "JOB",
+        "id": {
+          "namespace": "food_delivery",
+          "name": "emails.email_discounts"
+        },
+        "type": "BATCH",
+        "name": "emails.email_discounts",
+        "createdAt": "2021-07-21T05:00:12.563025Z",
+        "updatedAt": "2021-08-25T05:18:20.925014Z",
+        "namespace": "food_delivery",
+        "inputs": [
+          {
+            "namespace": "food_delivery",
+            "name": "public.customers"
+          },
+          {
+            "namespace": "food_delivery",
+            "name": "public.discounts"
+          }
+        ],
+        "outputs": [],
+        "location": "https://github.com/DatakinHQ/demo/blob/bd6303a76f4fa432d0853a07bb2e4b6d95bd0c49/airflow/dags/email_discounts.py",
+        "context": {
+          "job.facets.sourceCodeLocation.url": "https://github.com/DatakinHQ/demo/blob/bd6303a76f4fa432d0853a07bb2e4b6d95bd0c49/airflow/dags/email_discounts.py",
+          "sql": "SELECT * FROM discounts;"
+        },
+        "description": "Email discounts to customers that have experienced order delays.",
+        "latestRun": {
+          "id": "8a16d8f2-fc6c-4422-9ac6-a4d40bf960ed",
+          "createdAt": "2021-08-25T05:03:18.114191Z",
+          "updatedAt": "2021-08-25T05:18:20.925014Z",
+          "nominalStartTime": "2021-08-25T05:16:00Z",
+          "nominalEndTime": "2021-08-25T05:18:00Z",
+          "state": "COMPLETED",
+          "startedAt": "2021-08-25T05:16:19.925014Z",
+          "endedAt": "2021-08-25T05:18:20.925014Z",
+          "durationMs": 121000,
+          "args": {},
+          "jobVersion": {
+            "namespace": "food_delivery",
+            "name": "emails.email_discounts",
+            "version": "84c93939-abfa-353f-9bd6-3fded9ae2e84"
+          },
+          "inputVersions": [
+            {
+              "namespace": "food_delivery",
+              "name": "public.discounts",
+              "version": "656a4825-45a5-380e-a9ef-e0aa802fb77a"
+            },
+            {
+              "namespace": "food_delivery",
+              "name": "public.customers",
+              "version": "d1fe1543-4ab1-3625-910d-c00ef77ee362"
+            }
+          ],
+          "outputVersions": [],
+          "context": {
+            "job.facets.sourceCodeLocation.url": "https://github.com/DatakinHQ/demo/blob/bd6303a76f4fa432d0853a07bb2e4b6d95bd0c49/airflow/dags/email_discounts.py",
+            "sql": "SELECT * FROM discounts;"
+          },
+          "facets": {
+            "nominalTime": {
+              "nominalEndTime": "2021-08-25T05:18:00Z",
+              "nominalStartTime": "2021-08-25T05:16:00Z"
+            }
+          }
+        }
+      },
+      "inEdges": [
+        {
+          "origin": "dataset:food_delivery:public.customers",
+          "destination": "job:food_delivery:emails.email_discounts"
+        },
+        {
+          "origin": "dataset:food_delivery:public.discounts",
+          "destination": "job:food_delivery:emails.email_discounts"
+        }
+      ],
+      "outEdges": []
+    },
+    {
+      "id": "job:food_delivery:etl.etl_customers",
+      "type": "JOB",
+      "data": {
+        "type": "JOB",
+        "id": {
+          "namespace": "food_delivery",
+          "name": "etl.etl_customers"
+        },
+        "type": "BATCH",
+        "name": "etl.etl_customers",
+        "createdAt": "2021-07-21T05:00:12.074910Z",
+        "updatedAt": "2021-08-25T05:06:39.925014Z",
+        "namespace": "food_delivery",
+        "inputs": [],
+        "outputs": [
+          {
+            "namespace": "food_delivery",
+            "name": "public.customers"
+          }
+        ],
+        "location": "https://github.com/DatakinHQ/demo/blob/bd6303a76f4fa432d0853a07bb2e4b6d95bd0c49/airflow/dags/etl_customers.py",
+        "context": {
+          "job.facets.sourceCodeLocation.url": "https://github.com/DatakinHQ/demo/blob/bd6303a76f4fa432d0853a07bb2e4b6d95bd0c49/airflow/dags/etl_customers.py",
+          "sql": "INSERT INTO customers (id, created_at, updated_at, name, email, phone, city_id)\n  SELECT id, created_at, updated_at, name, email, phone, city_id\n    FROM tmp_customers;"
+        },
+        "description": "Loads newly registered customers daily.",
+        "latestRun": {
+          "id": "7b4f8b32-3446-4479-b146-092c94477872",
+          "createdAt": "2021-08-25T05:03:14.371997Z",
+          "updatedAt": "2021-08-25T05:06:39.925014Z",
+          "nominalStartTime": "2021-08-25T05:04:00Z",
+          "nominalEndTime": "2021-08-25T05:06:00Z",
+          "state": "COMPLETED",
+          "startedAt": "2021-08-25T05:04:19.925014Z",
+          "endedAt": "2021-08-25T05:06:39.925014Z",
+          "durationMs": 140000,
+          "args": {},
+          "jobVersion": {
+            "namespace": "food_delivery",
+            "name": "etl.etl_customers",
+            "version": "2fcacd14-f730-358c-b5ba-9bd3055f606b"
+          },
+          "inputVersions": [],
+          "outputVersions": [
+            {
+              "namespace": "food_delivery",
+              "name": "public.customers",
+              "version": "de68a5c7-6a9c-3f99-8fb0-c15e99c90030"
+            },
+            {
+              "namespace": "food_delivery",
+              "name": "public.customers",
+              "version": "d1fe1543-4ab1-3625-910d-c00ef77ee362"
+            }
+          ],
+          "context": {
+            "job.facets.sourceCodeLocation.url": "https://github.com/DatakinHQ/demo/blob/bd6303a76f4fa432d0853a07bb2e4b6d95bd0c49/airflow/dags/etl_customers.py",
+            "sql": "INSERT INTO customers (id, created_at, updated_at, name, email, phone, city_id)\n  SELECT id, created_at, updated_at, name, email, phone, city_id\n    FROM tmp_customers;"
+          },
+          "facets": {
+            "nominalTime": {
+              "nominalEndTime": "2021-08-25T05:06:00Z",
+              "nominalStartTime": "2021-08-25T05:04:00Z"
+            }
+          }
+        }
+      },
+      "inEdges": [],
+      "outEdges": [
+        {
+          "origin": "job:food_delivery:etl.etl_customers",
+          "destination": "dataset:food_delivery:public.customers"
+        }
+      ]
+    },
+    {
+      "id": "job:food_delivery:etl.etl_delivery_7_days",
+      "type": "JOB",
+      "data": {
+        "type": "JOB",
+        "id": {
+          "namespace": "food_delivery",
+          "name": "etl.etl_delivery_7_days"
+        },
+        "type": "BATCH",
+        "name": "etl.etl_delivery_7_days",
+        "createdAt": "2021-07-21T05:00:12.360090Z",
+        "updatedAt": "2021-08-25T05:11:22.925014Z",
+        "namespace": "food_delivery",
+        "inputs": [
+          {
+            "namespace": "food_delivery",
+            "name": "public.restaurants"
+          },
+          {
+            "namespace": "food_delivery",
+            "name": "public.customers"
+          },
+          {
+            "namespace": "food_delivery",
+            "name": "public.drivers"
+          },
+          {
+            "namespace": "food_delivery",
+            "name": "public.order_status"
+          },
+          {
+            "namespace": "food_delivery",
+            "name": "public.orders_7_days"
+          }
+        ],
+        "outputs": [
+          {
+            "namespace": "food_delivery",
+            "name": "public.delivery_7_days"
+          }
+        ],
+        "location": "https://github.com/DatakinHQ/demo/blob/16adfec8fd1f37ad58e0d3c0102b3e00c4f02837/airflow/dags/etl_delivery_7_days.py",
+        "context": {
+          "job.facets.sourceCodeLocation.url": "https://github.com/DatakinHQ/demo/blob/16adfec8fd1f37ad58e0d3c0102b3e00c4f02837/airflow/dags/etl_delivery_7_days.py",
+          "sql": "INSERT INTO delivery (order_id, order_placed_on, order_dispatched_on, order_delivered_on, customer_email,\n      customer_address, discount_id, menu_id, restaurant_id, restaurant_address, menu_item_id, category_id, driver_id)\n  SELECT o.order_id, o.placed_on AS order_placed_on,\n    (SELECT transitioned_at FROM order_status WHERE order_id == o.order_id AND status = 'DISPATCHED') AS order_dispatched_on,\n    (SELECT transitioned_at FROM order_status WHERE order_id == o.order_id AND status = 'DELIVERED') AS order_delivered_on,\n    c.email AS customer_email, c.address AS customer_address, o.discount_id, o.menu_id, o.restaurant_id,\n      r.address, o.menu_item_id, o.category_id, d.id AS driver_id\n    FROM orders_7_days AS o\n   INNER JOIN order_status AS os\n      ON os.order_id = o.order_id\n   INNER JOIN customers AS c\n      ON c.id = os.customer_id\n   INNER JOIN restaurants AS r\n      ON r.id = os.restaurant_id\n   INNER JOIN drivers AS d\n      ON d.id = os.driver_id\n   WHERE os.transitioned_at >= NOW() - interval '7 days';"
+        },
+        "description": "Loads new deliveries for the week.",
+        "latestRun": {
+          "id": "99abf9ab-4898-4f78-9581-29321c3f08cc",
+          "createdAt": "2021-08-25T05:03:16.703795Z",
+          "updatedAt": "2021-08-25T05:11:22.925014Z",
+          "nominalStartTime": "2021-08-25T05:08:00Z",
+          "nominalEndTime": "2021-08-25T05:11:00Z",
+          "state": "COMPLETED",
+          "startedAt": "2021-08-25T05:08:19.925014Z",
+          "endedAt": "2021-08-25T05:11:22.925014Z",
+          "durationMs": 183000,
+          "args": {},
+          "jobVersion": {
+            "namespace": "food_delivery",
+            "name": "etl.etl_delivery_7_days",
+            "version": "bc6c294b-b0eb-3160-a06d-1ff9ba3a4e1c"
+          },
+          "inputVersions": [
+            {
+              "namespace": "food_delivery",
+              "name": "public.order_status",
+              "version": "e9c2b987-3cf5-3d6d-8936-60270c750539"
+            },
+            {
+              "namespace": "food_delivery",
+              "name": "public.restaurants",
+              "version": "bc1ed7e1-ac45-3e9e-95df-699788208880"
+            },
+            {
+              "namespace": "food_delivery",
+              "name": "public.orders_7_days",
+              "version": "0d762993-4815-3c61-89fc-0ae7a557af03"
+            },
+            {
+              "namespace": "food_delivery",
+              "name": "public.drivers",
+              "version": "38038d57-7ab1-3716-88d3-2a556756177c"
+            },
+            {
+              "namespace": "food_delivery",
+              "name": "public.customers",
+              "version": "d1fe1543-4ab1-3625-910d-c00ef77ee362"
+            }
+          ],
+          "outputVersions": [
+            {
+              "namespace": "food_delivery",
+              "name": "public.delivery_7_days",
+              "version": "219efdd9-b704-35ef-a9ba-26ba4031a06e"
+            },
+            {
+              "namespace": "food_delivery",
+              "name": "public.delivery_7_days",
+              "version": "e91e2e97-5cf6-3cd6-aa20-7a986cc72388"
+            }
+          ],
+          "context": {
+            "sql": "INSERT INTO delivery (order_id, order_placed_on, order_dispatched_on, order_delivered_on, customer_email,\n      customer_address, discount_id, menu_id, restaurant_id, restaurant_address, menu_item_id, category_id, driver_id)\n  SELECT o.order_id, o.placed_on AS order_placed_on,\n    (SELECT transitioned_at FROM order_status WHERE order_id == o.order_id AND status = 'DISPATCHED') AS order_dispatched_on,\n    (SELECT transitioned_at FROM order_status WHERE order_id == o.order_id AND status = 'DELIVERED') AS order_delivered_on,\n    c.email AS customer_email, c.address AS customer_address, o.discount_id, o.menu_id, o.restaurant_id,\n      r.address, o.menu_item_id, o.category_id, d.id AS driver_id\n    FROM orders_7_days AS o\n   INNER JOIN order_status AS os\n      ON os.order_id = o.order_id\n   INNER JOIN customers AS c\n      ON c.id = os.customer_id\n   INNER JOIN restaurants AS r\n      ON r.id = os.restaurant_id\n   INNER JOIN drivers AS d\n      ON d.id = os.driver_id\n   WHERE os.transitioned_at >= NOW() - interval '7 days';"
+          },
+          "facets": {
+            "nominalTime": {
+              "nominalEndTime": "2021-08-25T05:11:00Z",
+              "nominalStartTime": "2021-08-25T05:08:00Z"
+            }
+          }
+        }
+      },
+      "inEdges": [
+        {
+          "origin": "dataset:food_delivery:public.customers",
+          "destination": "job:food_delivery:etl.etl_delivery_7_days"
+        },
+        {
+          "origin": "dataset:food_delivery:public.drivers",
+          "destination": "job:food_delivery:etl.etl_delivery_7_days"
+        },
+        {
+          "origin": "dataset:food_delivery:public.order_status",
+          "destination": "job:food_delivery:etl.etl_delivery_7_days"
+        },
+        {
+          "origin": "dataset:food_delivery:public.orders_7_days",
+          "destination": "job:food_delivery:etl.etl_delivery_7_days"
+        },
+        {
+          "origin": "dataset:food_delivery:public.restaurants",
+          "destination": "job:food_delivery:etl.etl_delivery_7_days"
+        }
+      ],
+      "outEdges": [
+        {
+          "origin": "job:food_delivery:etl.etl_delivery_7_days",
+          "destination": "dataset:food_delivery:public.delivery_7_days"
+        }
+      ]
+    },
+    {
+      "id": "job:food_delivery:etl.etl_drivers",
+      "type": "JOB",
+      "data": {
+        "type": "JOB",
+        "id": {
+          "namespace": "food_delivery",
+          "name": "etl.etl_drivers"
+        },
+        "type": "BATCH",
+        "name": "etl.etl_drivers",
+        "createdAt": "2021-07-21T05:00:12.175032Z",
+        "updatedAt": "2021-08-25T05:06:56.925014Z",
+        "namespace": "food_delivery",
+        "inputs": [],
+        "outputs": [
+          {
+            "namespace": "food_delivery",
+            "name": "public.drivers"
+          }
+        ],
+        "location": "https://github.com/DatakinHQ/demo/blob/bd6303a76f4fa432d0853a07bb2e4b6d95bd0c49/airflow/dags/etl_drivers.py",
+        "context": {
+          "job.facets.sourceCodeLocation.url": "https://github.com/DatakinHQ/demo/blob/bd6303a76f4fa432d0853a07bb2e4b6d95bd0c49/airflow/dags/etl_drivers.py",
+          "sql": "INSERT INTO drivers (id, created_at, updated_at, name, email, phone, car_make, car_model, car_year, car_color, car_license_plate)\n  SELECT id, created_at, updated_at, name, email, phone, car_make, car_model, car_year, car_color, car_license_plate\n    FROM tmp_drivers;"
+        },
+        "description": "Loads newly registered drivers daily.",
+        "latestRun": {
+          "id": "4eb2d08d-55f5-419c-813c-0947741118d6",
+          "createdAt": "2021-08-25T05:03:15.124693Z",
+          "updatedAt": "2021-08-25T05:06:56.925014Z",
+          "nominalStartTime": "2021-08-25T05:04:00Z",
+          "nominalEndTime": "2021-08-25T05:06:00Z",
+          "state": "COMPLETED",
+          "startedAt": "2021-08-25T05:04:19.925014Z",
+          "endedAt": "2021-08-25T05:06:56.925014Z",
+          "durationMs": 157000,
+          "args": {},
+          "jobVersion": {
+            "namespace": "food_delivery",
+            "name": "etl.etl_drivers",
+            "version": "c552ff83-87a2-386f-8c5d-c62c66773c06"
+          },
+          "inputVersions": [],
+          "outputVersions": [
+            {
+              "namespace": "food_delivery",
+              "name": "public.drivers",
+              "version": "0b4cf319-bf8c-3673-97c7-f6de9ccc6b99"
+            },
+            {
+              "namespace": "food_delivery",
+              "name": "public.drivers",
+              "version": "38038d57-7ab1-3716-88d3-2a556756177c"
+            }
+          ],
+          "context": {
+            "job.facets.sourceCodeLocation.url": "https://github.com/DatakinHQ/demo/blob/bd6303a76f4fa432d0853a07bb2e4b6d95bd0c49/airflow/dags/etl_drivers.py",
+            "sql": "INSERT INTO drivers (id, created_at, updated_at, name, email, phone, car_make, car_model, car_year, car_color, car_license_plate)\n  SELECT id, created_at, updated_at, name, email, phone, car_make, car_model, car_year, car_color, car_license_plate\n    FROM tmp_drivers;"
+          },
+          "facets": {
+            "nominalTime": {
+              "nominalEndTime": "2021-08-25T05:06:00Z",
+              "nominalStartTime": "2021-08-25T05:04:00Z"
+            }
+          }
+        }
+      },
+      "inEdges": [],
+      "outEdges": [
+        {
+          "origin": "job:food_delivery:etl.etl_drivers",
+          "destination": "dataset:food_delivery:public.drivers"
+        }
+      ]
+    },
+    {
+      "id": "job:food_delivery:etl.etl_order_status",
+      "type": "JOB",
+      "data": {
+        "type": "JOB",
+        "id": {
+          "namespace": "food_delivery",
+          "name": "etl.etl_order_status"
+        },
+        "type": "BATCH",
+        "name": "etl.etl_order_status",
+        "createdAt": "2021-07-21T05:00:12.157147Z",
+        "updatedAt": "2021-08-25T05:08:03.925014Z",
+        "namespace": "food_delivery",
+        "inputs": [],
+        "outputs": [
+          {
+            "namespace": "food_delivery",
+            "name": "public.order_status"
+          }
+        ],
+        "location": "https://github.com/DatakinHQ/demo/blob/bd6303a76f4fa432d0853a07bb2e4b6d95bd0c49/airflow/dags/etl_order_status.py",
+        "context": {
+          "job.facets.sourceCodeLocation.url": "https://github.com/DatakinHQ/demo/blob/bd6303a76f4fa432d0853a07bb2e4b6d95bd0c49/airflow/dags/etl_order_status.py",
+          "sql": "INSERT INTO order_status (id, transitioned_at, status, order_id, customer_id, restaurant_id, driver_id)\n  SELECT id, transitioned_at, status, order_id, customer_id, restaurant_id, driver_id\n    FROM tmp_order_status;"
+        },
+        "description": "Loads order statues updates daily.",
+        "latestRun": {
+          "id": "96325d66-5291-42db-9f40-55470ab560a0",
+          "createdAt": "2021-08-25T05:03:14.752412Z",
+          "updatedAt": "2021-08-25T05:08:03.925014Z",
+          "nominalStartTime": "2021-08-25T05:04:00Z",
+          "nominalEndTime": "2021-08-25T05:08:00Z",
+          "state": "COMPLETED",
+          "startedAt": "2021-08-25T05:04:19.925014Z",
+          "endedAt": "2021-08-25T05:08:03.925014Z",
+          "durationMs": 224000,
+          "args": {},
+          "jobVersion": {
+            "namespace": "food_delivery",
+            "name": "etl.etl_order_status",
+            "version": "2e04b236-747d-3ba2-a982-1acadda139d1"
+          },
+          "inputVersions": [],
+          "outputVersions": [
+            {
+              "namespace": "food_delivery",
+              "name": "public.order_status",
+              "version": "c3a15058-29dc-3f6b-bf72-a7d7020257cc"
+            },
+            {
+              "namespace": "food_delivery",
+              "name": "public.order_status",
+              "version": "e9c2b987-3cf5-3d6d-8936-60270c750539"
+            }
+          ],
+          "context": {
+            "job.facets.sourceCodeLocation.url": "https://github.com/DatakinHQ/demo/blob/bd6303a76f4fa432d0853a07bb2e4b6d95bd0c49/airflow/dags/etl_order_status.py",
+            "sql": "INSERT INTO order_status (id, transitioned_at, status, order_id, customer_id, restaurant_id, driver_id)\n  SELECT id, transitioned_at, status, order_id, customer_id, restaurant_id, driver_id\n    FROM tmp_order_status;"
+          },
+          "facets": {
+            "nominalTime": {
+              "nominalEndTime": "2021-08-25T05:08:00Z",
+              "nominalStartTime": "2021-08-25T05:04:00Z"
+            }
+          }
+        }
+      },
+      "inEdges": [],
+      "outEdges": [
+        {
+          "origin": "job:food_delivery:etl.etl_order_status",
+          "destination": "dataset:food_delivery:public.order_status"
+        }
+      ]
+    },
+    {
+      "id": "job:food_delivery:etl.etl_restaurants",
+      "type": "JOB",
+      "data": {
+        "type": "JOB",
+        "id": {
+          "namespace": "food_delivery",
+          "name": "etl.etl_restaurants"
+        },
+        "type": "BATCH",
+        "name": "etl.etl_restaurants",
+        "createdAt": "2021-07-21T05:00:12.052261Z",
+        "updatedAt": "2021-08-25T05:08:07.925014Z",
+        "namespace": "food_delivery",
+        "inputs": [],
+        "outputs": [
+          {
+            "namespace": "food_delivery",
+            "name": "public.restaurants"
+          }
+        ],
+        "location": "https://github.com/DatakinHQ/demo/blob/bd6303a76f4fa432d0853a07bb2e4b6d95bd0c49/airflow/dags/etl_restaurants.py",
+        "context": {
+          "job.facets.sourceCodeLocation.url": "https://github.com/DatakinHQ/demo/blob/bd6303a76f4fa432d0853a07bb2e4b6d95bd0c49/airflow/dags/etl_restaurants.py",
+          "sql": "INSERT INTO restaurants (id, created_at, updated_at, name, email, address, phone, city_id, business_hours_id, description)\n  SELECT id, created_at, updated_at, name, email, address, phone, city_id, business_hours_id, description\n    FROM tmp_restaurants;"
+        },
+        "description": "Loads newly registered restaurants daily.",
+        "latestRun": {
+          "id": "8b42fd15-bcfa-4ce3-b94f-670884288533",
+          "createdAt": "2021-08-25T05:03:13.972982Z",
+          "updatedAt": "2021-08-25T05:08:07.925014Z",
+          "nominalStartTime": "2021-08-25T05:04:00Z",
+          "nominalEndTime": "2021-08-25T05:08:00Z",
+          "state": "COMPLETED",
+          "startedAt": "2021-08-25T05:04:19.925014Z",
+          "endedAt": "2021-08-25T05:08:07.925014Z",
+          "durationMs": 228000,
+          "args": {},
+          "jobVersion": {
+            "namespace": "food_delivery",
+            "name": "etl.etl_restaurants",
+            "version": "d51962aa-cf5f-3e0e-b240-fc1e5dbf4879"
+          },
+          "inputVersions": [],
+          "outputVersions": [
+            {
+              "namespace": "food_delivery",
+              "name": "public.restaurants",
+              "version": "9f76b112-3a7f-3a63-b4df-ba83d71daf21"
+            },
+            {
+              "namespace": "food_delivery",
+              "name": "public.restaurants",
+              "version": "bc1ed7e1-ac45-3e9e-95df-699788208880"
+            }
+          ],
+          "context": {
+            "job.facets.sourceCodeLocation.url": "https://github.com/DatakinHQ/demo/blob/bd6303a76f4fa432d0853a07bb2e4b6d95bd0c49/airflow/dags/etl_restaurants.py",
+            "sql": "INSERT INTO restaurants (id, created_at, updated_at, name, email, address, phone, city_id, business_hours_id, description)\n  SELECT id, created_at, updated_at, name, email, address, phone, city_id, business_hours_id, description\n    FROM tmp_restaurants;"
+          },
+          "facets": {
+            "nominalTime": {
+              "nominalEndTime": "2021-08-25T05:08:00Z",
+              "nominalStartTime": "2021-08-25T05:04:00Z"
+            }
+          }
+        }
+      },
+      "inEdges": [],
+      "outEdges": [
+        {
+          "origin": "job:food_delivery:etl.etl_restaurants",
+          "destination": "dataset:food_delivery:public.restaurants"
+        }
+      ]
+    },
+    {
+      "id": "job:food_delivery:etl_orders.etl_categories",
+      "type": "JOB",
+      "data": {
+        "type": "JOB",
+        "id": {
+          "namespace": "food_delivery",
+          "name": "etl_orders.etl_categories"
+        },
+        "type": "BATCH",
+        "name": "etl_orders.etl_categories",
+        "createdAt": "2021-07-21T05:00:11.870558Z",
+        "updatedAt": "2021-08-25T05:03:58.925014Z",
+        "namespace": "food_delivery",
+        "inputs": [],
+        "outputs": [
+          {
+            "namespace": "food_delivery",
+            "name": "public.categories"
+          }
+        ],
+        "location": "https://github.com/DatakinHQ/demo/blob/bd6303a76f4fa432d0853a07bb2e4b6d95bd0c49/airflow/dags/etl_categories.py",
+        "context": {
+          "job.facets.sourceCodeLocation.url": "https://github.com/DatakinHQ/demo/blob/bd6303a76f4fa432d0853a07bb2e4b6d95bd0c49/airflow/dags/etl_categories.py",
+          "sql": "INSERT INTO categories (id, name, menu_id, description)\n  SELECT id, name, menu_id, description\n    FROM tmp_categories;"
+        },
+        "description": "Loads newly added menus categories daily.",
+        "latestRun": {
+          "id": "6eb15d29-fb31-4a49-b2b3-3f07980af0c5",
+          "createdAt": "2021-08-25T05:03:13.277137Z",
+          "updatedAt": "2021-08-25T05:03:58.925014Z",
+          "nominalStartTime": "2021-08-25T05:00:00Z",
+          "nominalEndTime": "2021-08-25T05:03:00Z",
+          "state": "COMPLETED",
+          "startedAt": "2021-08-25T05:00:19.925014Z",
+          "endedAt": "2021-08-25T05:03:58.925014Z",
+          "durationMs": 219000,
+          "args": {},
+          "jobVersion": {
+            "namespace": "food_delivery",
+            "name": "etl_orders.etl_categories",
+            "version": "4c409e02-f046-34e0-9336-a3f71c2af478"
+          },
+          "inputVersions": [],
+          "outputVersions": [
+            {
+              "namespace": "food_delivery",
+              "name": "public.categories",
+              "version": "e6c546d8-e151-3adf-b82c-717ef2a79460"
+            },
+            {
+              "namespace": "food_delivery",
+              "name": "public.categories",
+              "version": "706c7394-3ecc-3886-a20b-d030ec2649bb"
+            }
+          ],
+          "context": {
+            "job.facets.sourceCodeLocation.url": "https://github.com/DatakinHQ/demo/blob/bd6303a76f4fa432d0853a07bb2e4b6d95bd0c49/airflow/dags/etl_categories.py",
+            "sql": "INSERT INTO categories (id, name, menu_id, description)\n  SELECT id, name, menu_id, description\n    FROM tmp_categories;"
+          },
+          "facets": {
+            "nominalTime": {
+              "nominalEndTime": "2021-08-25T05:03:00Z",
+              "nominalStartTime": "2021-08-25T05:00:00Z"
+            }
+          }
+        }
+      },
+      "inEdges": [],
+      "outEdges": [
+        {
+          "origin": "job:food_delivery:etl_orders.etl_categories",
+          "destination": "dataset:food_delivery:public.categories"
+        }
+      ]
+    },
+    {
+      "id": "job:food_delivery:etl_orders.etl_menu_items",
+      "type": "JOB",
+      "data": {
+        "type": "JOB",
+        "id": {
+          "namespace": "food_delivery",
+          "name": "etl_orders.etl_menu_items"
+        },
+        "type": "BATCH",
+        "name": "etl_orders.etl_menu_items",
+        "createdAt": "2021-07-21T05:00:11.962073Z",
+        "updatedAt": "2021-08-25T05:03:51.925014Z",
+        "namespace": "food_delivery",
+        "inputs": [],
+        "outputs": [
+          {
+            "namespace": "food_delivery",
+            "name": "public.menu_items"
+          }
+        ],
+        "location": "https://github.com/DatakinHQ/demo/blob/bd6303a76f4fa432d0853a07bb2e4b6d95bd0c49/airflow/dags/etl_menu_items.py",
+        "context": {
+          "job.facets.sourceCodeLocation.url": "https://github.com/DatakinHQ/demo/blob/bd6303a76f4fa432d0853a07bb2e4b6d95bd0c49/airflow/dags/etl_menu_items.py",
+          "sql": "INSERT INTO menu_items (id, name, price, category_id, description)\n  SELECT id, name, price, category_id, description\n    FROM tmp_menu_items;"
+        },
+        "description": "Loads newly added restaurant menu items daily.",
+        "latestRun": {
+          "id": "6b136e54-eceb-4fa7-8bd0-60f9f6e78a71",
+          "createdAt": "2021-08-25T05:03:13.613837Z",
+          "updatedAt": "2021-08-25T05:03:51.925014Z",
+          "nominalStartTime": "2021-08-25T05:00:00Z",
+          "nominalEndTime": "2021-08-25T05:03:00Z",
+          "state": "COMPLETED",
+          "startedAt": "2021-08-25T05:00:19.925014Z",
+          "endedAt": "2021-08-25T05:03:51.925014Z",
+          "durationMs": 212000,
+          "args": {},
+          "jobVersion": {
+            "namespace": "food_delivery",
+            "name": "etl_orders.etl_menu_items",
+            "version": "b7bbdfa9-32e0-39c5-93d1-83a4d406d4b6"
+          },
+          "inputVersions": [],
+          "outputVersions": [
+            {
+              "namespace": "food_delivery",
+              "name": "public.menu_items",
+              "version": "0c390929-0cb7-3f18-b315-e9dbec53c007"
+            },
+            {
+              "namespace": "food_delivery",
+              "name": "public.menu_items",
+              "version": "f30ea1d3-0775-3791-ad7f-8e65556a71af"
+            }
+          ],
+          "context": {
+            "job.facets.sourceCodeLocation.url": "https://github.com/DatakinHQ/demo/blob/bd6303a76f4fa432d0853a07bb2e4b6d95bd0c49/airflow/dags/etl_menu_items.py",
+            "sql": "INSERT INTO menu_items (id, name, price, category_id, description)\n  SELECT id, name, price, category_id, description\n    FROM tmp_menu_items;"
+          },
+          "facets": {
+            "nominalTime": {
+              "nominalEndTime": "2021-08-25T05:03:00Z",
+              "nominalStartTime": "2021-08-25T05:00:00Z"
+            }
+          }
+        }
+      },
+      "inEdges": [],
+      "outEdges": [
+        {
+          "origin": "job:food_delivery:etl_orders.etl_menu_items",
+          "destination": "dataset:food_delivery:public.menu_items"
+        }
+      ]
+    },
+    {
+      "id": "job:food_delivery:etl_orders.etl_menus",
+      "type": "JOB",
+      "data": {
+        "type": "JOB",
+        "id": {
+          "namespace": "food_delivery",
+          "name": "etl_orders.etl_menus"
+        },
+        "type": "BATCH",
+        "name": "etl_orders.etl_menus",
+        "createdAt": "2021-07-21T05:00:11.849068Z",
+        "updatedAt": "2021-08-25T05:02:28.925014Z",
+        "namespace": "food_delivery",
+        "inputs": [],
+        "outputs": [
+          {
+            "namespace": "food_delivery",
+            "name": "public.menus"
+          }
+        ],
+        "location": "https://github.com/DatakinHQ/demo/blob/bd6303a76f4fa432d0853a07bb2e4b6d95bd0c49/airflow/dags/etl_menus.py",
+        "context": {
+          "job.facets.sourceCodeLocation.url": "https://github.com/DatakinHQ/demo/blob/bd6303a76f4fa432d0853a07bb2e4b6d95bd0c49/airflow/dags/etl_menus.py",
+          "sql": "INSERT INTO menus (id, name, restaurant_id, description)\n  SELECT id, name, restaurant_id, description\n    FROM tmp_menus;"
+        },
+        "description": "Loads newly added restaurant menus daily.",
+        "latestRun": {
+          "id": "c35de1e0-f2a0-4ec7-8e9f-f28efa31b170",
+          "createdAt": "2021-08-25T05:03:12.931726Z",
+          "updatedAt": "2021-08-25T05:02:28.925014Z",
+          "nominalStartTime": "2021-08-25T05:00:00Z",
+          "nominalEndTime": "2021-08-25T05:02:00Z",
+          "state": "COMPLETED",
+          "startedAt": "2021-08-25T05:00:19.925014Z",
+          "endedAt": "2021-08-25T05:02:28.925014Z",
+          "durationMs": 129000,
+          "args": {},
+          "jobVersion": {
+            "namespace": "food_delivery",
+            "name": "etl_orders.etl_menus",
+            "version": "f71aea64-be54-30b9-a370-e43fa6c5d518"
+          },
+          "inputVersions": [],
+          "outputVersions": [
+            {
+              "namespace": "food_delivery",
+              "name": "public.menus",
+              "version": "b212245f-bdf2-39bd-ab8d-2bf5bdd9db6d"
+            },
+            {
+              "namespace": "food_delivery",
+              "name": "public.menus",
+              "version": "0af73916-1122-3f4f-947c-424c7106034d"
+            }
+          ],
+          "context": {
+            "job.facets.sourceCodeLocation.url": "https://github.com/DatakinHQ/demo/blob/bd6303a76f4fa432d0853a07bb2e4b6d95bd0c49/airflow/dags/etl_menus.py",
+            "sql": "INSERT INTO menus (id, name, restaurant_id, description)\n  SELECT id, name, restaurant_id, description\n    FROM tmp_menus;"
+          },
+          "facets": {
+            "nominalTime": {
+              "nominalEndTime": "2021-08-25T05:02:00Z",
+              "nominalStartTime": "2021-08-25T05:00:00Z"
+            }
+          }
+        }
+      },
+      "inEdges": [],
+      "outEdges": [
+        {
+          "origin": "job:food_delivery:etl_orders.etl_menus",
+          "destination": "dataset:food_delivery:public.menus"
+        }
+      ]
+    },
+    {
+      "id": "job:food_delivery:etl_orders.etl_orders",
+      "type": "JOB",
+      "data": {
+        "type": "JOB",
+        "id": {
+          "namespace": "food_delivery",
+          "name": "etl_orders.etl_orders"
+        },
+        "type": "BATCH",
+        "name": "etl_orders.etl_orders",
+        "createdAt": "2021-07-21T05:00:11.754754Z",
+        "updatedAt": "2021-08-25T05:04:06.925014Z",
+        "namespace": "food_delivery",
+        "inputs": [],
+        "outputs": [
+          {
+            "namespace": "food_delivery",
+            "name": "public.orders"
+          }
+        ],
+        "location": "https://github.com/DatakinHQ/demo/blob/bd6303a76f4fa432d0853a07bb2e4b6d95bd0c49/airflow/dags/etl_orders.py",
+        "context": {
+          "job.facets.sourceCodeLocation.url": "https://github.com/DatakinHQ/demo/blob/bd6303a76f4fa432d0853a07bb2e4b6d95bd0c49/airflow/dags/etl_orders.py",
+          "sql": "INSERT INTO orders (id, placed_on, menu_item_id, quantity, discount_id, comment)\n  SELECT id, placed_on, menu_item_id, quantity, discount_id, comment\n    FROM tmp_orders;"
+        },
+        "description": "Loads newly placed orders weekly.",
+        "latestRun": {
+          "id": "f6bb4618-07ee-49a0-bb18-efb89212d8f7",
+          "createdAt": "2021-08-25T05:03:12.558093Z",
+          "updatedAt": "2021-08-25T05:04:06.925014Z",
+          "nominalStartTime": "2021-08-25T05:00:00Z",
+          "nominalEndTime": "2021-08-25T05:04:00Z",
+          "state": "COMPLETED",
+          "startedAt": "2021-08-25T05:00:19.925014Z",
+          "endedAt": "2021-08-25T05:04:06.925014Z",
+          "durationMs": 227000,
+          "args": {},
+          "jobVersion": {
+            "namespace": "food_delivery",
+            "name": "etl_orders.etl_orders",
+            "version": "5cd12692-13b8-3409-a80a-d670c77ba9af"
+          },
+          "inputVersions": [],
+          "outputVersions": [
+            {
+              "namespace": "food_delivery",
+              "name": "public.orders",
+              "version": "8e4b3d4e-f3ea-34fd-b47b-99d84951b17a"
+            },
+            {
+              "namespace": "food_delivery",
+              "name": "public.orders",
+              "version": "c7a2da0e-1b9f-386c-a9b4-5c4e1038c568"
+            }
+          ],
+          "context": {
+            "job.facets.sourceCodeLocation.url": "https://github.com/DatakinHQ/demo/blob/bd6303a76f4fa432d0853a07bb2e4b6d95bd0c49/airflow/dags/etl_orders.py",
+            "sql": "INSERT INTO orders (id, placed_on, menu_item_id, quantity, discount_id, comment)\n  SELECT id, placed_on, menu_item_id, quantity, discount_id, comment\n    FROM tmp_orders;"
+          },
+          "facets": {
+            "nominalTime": {
+              "nominalEndTime": "2021-08-25T05:04:00Z",
+              "nominalStartTime": "2021-08-25T05:00:00Z"
+            }
+          }
+        }
+      },
+      "inEdges": [],
+      "outEdges": [
+        {
+          "origin": "job:food_delivery:etl_orders.etl_orders",
+          "destination": "dataset:food_delivery:public.orders"
+        }
+      ]
+    },
+    {
+      "id": "job:food_delivery:etl_orders.etl_orders_7_days",
+      "type": "JOB",
+      "data": {
+        "type": "JOB",
+        "id": {
+          "namespace": "food_delivery",
+          "name": "etl_orders.etl_orders_7_days"
+        },
+        "type": "BATCH",
+        "name": "etl_orders.etl_orders_7_days",
+        "createdAt": "2021-07-21T05:00:12.264069Z",
+        "updatedAt": "2021-08-25T05:07:25.925014Z",
+        "namespace": "food_delivery",
+        "inputs": [
+          {
+            "namespace": "food_delivery",
+            "name": "public.categories"
+          },
+          {
+            "namespace": "food_delivery",
+            "name": "public.menu_items"
+          },
+          {
+            "namespace": "food_delivery",
+            "name": "public.orders"
+          },
+          {
+            "namespace": "food_delivery",
+            "name": "public.menus"
+          }
+        ],
+        "outputs": [
+          {
+            "namespace": "food_delivery",
+            "name": "public.orders_7_days"
+          }
+        ],
+        "location": "https://github.com/DatakinHQ/demo/blob/bd6303a76f4fa432d0853a07bb2e4b6d95bd0c49/airflow/dags/etl_orders_7_days.py",
+        "context": {
+          "job.facets.sourceCodeLocation.url": "https://github.com/DatakinHQ/demo/blob/bd6303a76f4fa432d0853a07bb2e4b6d95bd0c49/airflow/dags/etl_orders_7_days.py",
+          "sql": "INSERT INTO orders_7_days (order_id, placed_on, discount_id, menu_id, restaurant_id, menu_item_id, category_id)\n  SELECT o.id AS order_id, o.placed_on, o.discount_id, m.id AS menu_id, m.restaurant_id, mi.id AS menu_item_id, c.id AS category_id\n    FROM orders AS o\n   INNER JOIN menu_items AS mi\n      ON menu_items.id = o.menu_item_id\n   INNER JOIN categories AS c\n      ON c.id = mi.category_id\n   INNER JOIN menu AS m\n      ON m.id = c.menu_id\n   WHERE o.placed_on >= NOW() - interval '7 days';"
+        },
+        "description": "Loads newly placed orders weekly.",
+        "latestRun": {
+          "id": "a4314cf5-45d1-4bcd-9415-0dc359da667d",
+          "createdAt": "2021-08-25T05:03:15.840617Z",
+          "updatedAt": "2021-08-25T05:07:25.925014Z",
+          "nominalStartTime": "2021-08-25T05:04:00Z",
+          "nominalEndTime": "2021-08-25T05:07:00Z",
+          "state": "COMPLETED",
+          "startedAt": "2021-08-25T05:04:19.925014Z",
+          "endedAt": "2021-08-25T05:07:25.925014Z",
+          "durationMs": 186000,
+          "args": {},
+          "jobVersion": {
+            "namespace": "food_delivery",
+            "name": "etl_orders.etl_orders_7_days",
+            "version": "e1cfd2ef-8197-34e4-b361-8ffc012cff81"
+          },
+          "inputVersions": [
+            {
+              "namespace": "food_delivery",
+              "name": "public.menus",
+              "version": "0af73916-1122-3f4f-947c-424c7106034d"
+            },
+            {
+              "namespace": "food_delivery",
+              "name": "public.categories",
+              "version": "706c7394-3ecc-3886-a20b-d030ec2649bb"
+            },
+            {
+              "namespace": "food_delivery",
+              "name": "public.menu_items",
+              "version": "f30ea1d3-0775-3791-ad7f-8e65556a71af"
+            },
+            {
+              "namespace": "food_delivery",
+              "name": "public.orders",
+              "version": "c7a2da0e-1b9f-386c-a9b4-5c4e1038c568"
+            }
+          ],
+          "outputVersions": [
+            {
+              "namespace": "food_delivery",
+              "name": "public.orders_7_days",
+              "version": "a9d7610c-46ec-39e0-92ed-7bb16e05ade4"
+            },
+            {
+              "namespace": "food_delivery",
+              "name": "public.orders_7_days",
+              "version": "0d762993-4815-3c61-89fc-0ae7a557af03"
+            }
+          ],
+          "context": {
+            "job.facets.sourceCodeLocation.url": "https://github.com/DatakinHQ/demo/blob/bd6303a76f4fa432d0853a07bb2e4b6d95bd0c49/airflow/dags/etl_orders_7_days.py",
+            "sql": "INSERT INTO orders_7_days (order_id, placed_on, discount_id, menu_id, restaurant_id, menu_item_id, category_id)\n  SELECT o.id AS order_id, o.placed_on, o.discount_id, m.id AS menu_id, m.restaurant_id, mi.id AS menu_item_id, c.id AS category_id\n    FROM orders AS o\n   INNER JOIN menu_items AS mi\n      ON menu_items.id = o.menu_item_id\n   INNER JOIN categories AS c\n      ON c.id = mi.category_id\n   INNER JOIN menu AS m\n      ON m.id = c.menu_id\n   WHERE o.placed_on >= NOW() - interval '7 days';"
+          },
+          "facets": {
+            "nominalTime": {
+              "nominalEndTime": "2021-08-25T05:07:00Z",
+              "nominalStartTime": "2021-08-25T05:04:00Z"
+            }
+          }
+        }
+      },
+      "inEdges": [
+        {
+          "origin": "dataset:food_delivery:public.categories",
+          "destination": "job:food_delivery:etl_orders.etl_orders_7_days"
+        },
+        {
+          "origin": "dataset:food_delivery:public.menu_items",
+          "destination": "job:food_delivery:etl_orders.etl_orders_7_days"
+        },
+        {
+          "origin": "dataset:food_delivery:public.menus",
+          "destination": "job:food_delivery:etl_orders.etl_orders_7_days"
+        },
+        {
+          "origin": "dataset:food_delivery:public.orders",
+          "destination": "job:food_delivery:etl_orders.etl_orders_7_days"
+        }
+      ],
+      "outEdges": [
+        {
+          "origin": "job:food_delivery:etl_orders.etl_orders_7_days",
+          "destination": "dataset:food_delivery:public.orders_7_days"
+        }
+      ]
+    }
+  ]
+}

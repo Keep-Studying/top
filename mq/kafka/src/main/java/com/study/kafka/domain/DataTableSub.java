@@ -4,6 +4,7 @@
 package com.study.kafka.domain;
 
 import lombok.Data;
+import lombok.experimental.Accessors;
 
 import java.util.List;
 
@@ -13,6 +14,7 @@ import java.util.List;
  * @version : DataTableSub.java, v 0.1 2021年07月02日 6:01 下午 boyan Exp $
  */
 @Data
+@Accessors(chain = true)
 public class DataTableSub extends ToString {
     private static final long serialVersionUID = 4221950844933772579L;
 

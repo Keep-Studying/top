@@ -3,6 +3,8 @@
  */
 package com.study.utils.time;
 
+import com.study.utils.domain.DataSource;
+import org.apache.commons.lang3.StringUtils;
 import org.junit.Test;
 
 import java.time.*;
@@ -10,6 +12,8 @@ import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 import java.time.temporal.TemporalAdjusters;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Random;
 
 /**
@@ -54,18 +58,18 @@ public class TimeUtilsJdk8 {
         LocalDateTime localDateTime = LocalDateTime.now();
         //获取当前时间 时间格式 yyyy-MM-dd
         LocalDate day = LocalDate.now();
-
+        System.out.println(day.toString());
         /**
          * 时间加减
          */
         //加10天 负数是减
-        LocalDateTime plusDays = localDateTime.plusDays(10l);
+        LocalDateTime plusDays = localDateTime.plusDays(10L);
         //加10小时
-        localDateTime.plusHours(10l);
+        localDateTime.plusHours(10L);
         //加10分钟
-        localDateTime.plusMinutes(10l);
+        localDateTime.plusMinutes(10L);
         //加10秒
-        localDateTime.plusSeconds(10l);
+        localDateTime.plusSeconds(10L);
         System.out.println("当前时间是" + localDateTime + "," + "加10天时间是" + plusDays);
 
         //获取当前时间 时间格式 2019-08-01T02:06:26.519Z 格林威治时间
@@ -135,6 +139,34 @@ public class TimeUtilsJdk8 {
     public void test02(){
         Random random = new Random();
         System.out.println(random.nextInt(300));
+    }
 
+    @Test
+    public void test03(){
+        //获取当前时间 时间格式 yyyy-MM-dd
+        LocalDate day = LocalDate.now();
+        System.out.println("abd "+day);
+    }
+
+    @Test
+    public void test04(){
+        HashMap<String, Object> map = new HashMap<>();
+        map.put("a","a");
+        map.put("b",2);
+        map.put("c",new DataSource().setId("1234"));
+
+        System.out.println(this.get(map,"a",String.class));
+        System.out.println(this.get(map,"b",Integer.class));
+        System.out.println(this.get(map,"c",DataSource.class));
+    }
+
+    public <T> T  get(Map<String,Object> map,String key, Class<T> clazz){
+        T t = (T)map.get(key);
+        return t;
+    }
+
+    @Test
+    public void test05(){
+        System.out.println(StringUtils.upperCase("acv"));
     }
 }

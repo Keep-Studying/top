@@ -1,0 +1,16 @@
+[
+  {
+    "columns": [],
+    "tableCat": "db_tpcds",
+    "tableName": "table1",
+    "tableSchema": "public",
+    "tableType": "BASE TABLE"
+  },
+  {
+    "columns": [],
+    "tableCat": "db_tpcds",
+    "tableName": "table2",
+    "tableSchema": "public",
+    "tableType": "BASE TABLE"
+  }
+]

@@ -11,8 +11,6 @@ import org.springframework.cloud.stream.messaging.Source;
 public class KafkaApplication {
 
     public static void main(String[] args) {
-        //System.setProperty("java.security.auth.login.config", "classpath:kafka_auth.conf");
-        System.setProperty("java.security.auth.login.config", "/Users/boyan/local/IdeaProjects/Owner/top/mq/kafka/src/main/resources/kafka_auth.conf");
         SpringApplication.run(KafkaApplication.class, args);
     }
 

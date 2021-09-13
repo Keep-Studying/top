@@ -3,9 +3,8 @@ package com.study.kafka.controller;
 import com.alibaba.fastjson.JSON;
 import com.study.kafka.domain.UniformEvent;
 import com.study.kafka.domain.UpdateNotice;
+import org.apache.commons.lang3.StringUtils;
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 /**
  * @author boyan
@@ -30,4 +29,11 @@ public class RestControllerTest {
         System.out.println(JSON.toJSONString(authUniformEvent));
     }
 
+    @Test
+    public void test01(){
+        String str="DataSetId24 mysql_v1";
+        String replace = StringUtils.replace(str, " ", "+");
+        System.out.println(str);
+        System.out.println(replace);
+    }
 }

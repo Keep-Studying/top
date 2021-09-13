@@ -1,0 +1,227 @@
+[
+  {
+    "channel": "channel",
+    "eventCode": "EC_UPDATENOTICE",
+    "eventId": "9c8c3520-c167-4e08-8e3a-fbca1990bb5f",
+    "eventTime": 1630461929234,
+    "extraParams": {},
+    "invokeSystem": "invokeSystem",
+    "payload": {
+      "dataSourceId": "13",
+      "tableName": "ACAM_C01_SANA_PFM_CUST_BRN_MON_SR_202012_KC"
+    },
+    "sceneCode": "sceneCode",
+    "tntInstId": "default",
+    "topic": "TP_S_METADATA"
+  },
+  {
+    "channel": "channel",
+    "eventCode": "EC_UPDATENOTICE",
+    "eventId": "cf568482-3a9e-4742-bfb5-ee5f9a7e09a0",
+    "eventTime": 1630461929234,
+    "extraParams": {},
+    "invokeSystem": "invokeSystem",
+    "payload": {
+      "dataSourceId": "13",
+      "tableName": "ACAM_C01_SANA_PFM_CUST_BRN_MON_SR_202012_KC"
+    },
+    "sceneCode": "sceneCode",
+    "tntInstId": "default",
+    "topic": "TP_S_METADATA"
+  },
+  {
+    "channel": "channel",
+    "eventCode": "EC_UPDATENOTICE",
+    "eventId": "f8d72096-57ca-4760-ba2b-2c9b313463c7",
+    "eventTime": 1630461929234,
+    "extraParams": {},
+    "invokeSystem": "invokeSystem",
+    "payload": {
+      "dataSourceId": "12",
+      "tableName": "ACAM_C01_SANA_PFM_CUST_BRN_MON_SR_202012_KC"
+    },
+    "sceneCode": "sceneCode",
+    "tntInstId": "default",
+    "topic": "TP_S_METADATA"
+  },
+  {
+    "channel": "channel",
+    "eventCode": "EC_UPDATENOTICE",
+    "eventId": "48e4b98a-5b37-4911-bdaf-97fb99ea1f55",
+    "eventTime": 1630461929234,
+    "extraParams": {},
+    "invokeSystem": "invokeSystem",
+    "payload": {
+      "dataSourceId": "11",
+      "tableName": "ACAM_C01_SANA_PFM_CUST_BRN_MON_SR_202012_KC"
+    },
+    "sceneCode": "sceneCode",
+    "tntInstId": "default",
+    "topic": "TP_S_METADATA"
+  },
+  {
+    "channel": "channel",
+    "eventCode": "EC_UPDATENOTICE",
+    "eventId": "7784e163-1770-4fd3-af3a-90d1d1fe2d33",
+    "eventTime": 1630461929234,
+    "extraParams": {},
+    "invokeSystem": "invokeSystem",
+    "payload": {
+      "dataSourceId": "18",
+      "tableName": "kylin_sales_cube"
+    },
+    "sceneCode": "sceneCode",
+    "tntInstId": "default",
+    "topic": "TP_S_METADATA"
+  },
+  {
+    "channel": "channel",
+    "eventCode": "EC_UPDATENOTICE",
+    "eventId": "602a7e86-dbc9-4862-9cd7-1e4caa889c94",
+    "eventTime": 1630461929234,
+    "extraParams": {},
+    "invokeSystem": "invokeSystem",
+    "payload": {
+      "dataSourceId": "3",
+      "tableName": "cube1"
+    },
+    "sceneCode": "sceneCode",
+    "tntInstId": "default",
+    "topic": "TP_S_METADATA"
+  },
+  {
+    "channel": "channel",
+    "eventCode": "EC_UPDATENOTICE",
+    "eventId": "7b40346d-be53-49e5-a9b4-fc4a61fdc85e",
+    "eventTime": 1630461929234,
+    "extraParams": {},
+    "invokeSystem": "invokeSystem",
+    "payload": {
+      "dataSourceId": "20",
+      "tableName": "ams_datset"
+    },
+    "sceneCode": "sceneCode",
+    "tntInstId": "default",
+    "topic": "TP_S_METADATA"
+  },
+  {
+    "channel": "channel",
+    "eventCode": "EC_UPDATENOTICE",
+    "eventId": "0dbf618f-2ae6-4620-9312-856554fd19ce",
+    "eventTime": 1630461929234,
+    "extraParams": {},
+    "invokeSystem": "invokeSystem",
+    "payload": {
+      "dataSourceId": "22",
+      "tableName": "dbgen_version"
+    },
+    "sceneCode": "sceneCode",
+    "tntInstId": "default",
+    "topic": "TP_S_METADATA"
+  },
+  {
+    "channel": "channel",
+    "eventCode": "EC_UPDATENOTICE",
+    "eventId": "4889c316-8041-4822-83b4-c8391402adbf",
+    "eventTime": 1630461929234,
+    "extraParams": {},
+    "invokeSystem": "invokeSystem",
+    "payload": {
+      "dataSourceId": "8",
+      "tableName": "TableName"
+    },
+    "sceneCode": "sceneCode",
+    "tntInstId": "default",
+    "topic": "TP_S_METADATA"
+  },
+  {
+    "channel": "channel",
+    "eventCode": "EC_UPDATENOTICE",
+    "eventId": "288074d5-e2a9-4984-bb8b-063cd8d4202b",
+    "eventTime": 1630461929235,
+    "extraParams": {},
+    "invokeSystem": "invokeSystem",
+    "payload": {
+      "dataSourceId": "9",
+      "tableName": "TableName"
+    },
+    "sceneCode": "sceneCode",
+    "tntInstId": "default",
+    "topic": "TP_S_METADATA"
+  },
+  {
+    "channel": "channel",
+    "eventCode": "EC_UPDATENOTICE",
+    "eventId": "97f7bf38-d015-4129-8579-4555d5637dbc",
+    "eventTime": 1630461929235,
+    "extraParams": {},
+    "invokeSystem": "invokeSystem",
+    "payload": {
+      "dataSourceId": "10",
+      "tableName": "TableName"
+    },
+    "sceneCode": "sceneCode",
+    "tntInstId": "default",
+    "topic": "TP_S_METADATA"
+  },
+  {
+    "channel": "channel",
+    "eventCode": "EC_UPDATENOTICE",
+    "eventId": "44e51175-3398-4c39-849c-d3a905cb709f",
+    "eventTime": 1630461929235,
+    "extraParams": {},
+    "invokeSystem": "invokeSystem",
+    "payload": {
+      "dataSourceId": "24",
+      "tableName": "test"
+    },
+    "sceneCode": "sceneCode",
+    "tntInstId": "default",
+    "topic": "TP_S_METADATA"
+  },
+  {
+    "channel": "channel",
+    "eventCode": "EC_UPDATENOTICE",
+    "eventId": "e9cba1c4-8056-484e-9354-90ef0237a6b8",
+    "eventTime": 1630461929235,
+    "extraParams": {},
+    "invokeSystem": "invokeSystem",
+    "payload": {
+      "dataSourceId": "28",
+      "tableName": "postgres"
+    },
+    "sceneCode": "sceneCode",
+    "tntInstId": "default",
+    "topic": "TP_S_METADATA"
+  },
+  {
+    "channel": "channel",
+    "eventCode": "EC_UPDATENOTICE",
+    "eventId": "0ac59551-ba6c-408a-b714-cd639368da69",
+    "eventTime": 1630461929235,
+    "extraParams": {},
+    "invokeSystem": "invokeSystem",
+    "payload": {
+      "dataSourceId": "32",
+      "tableName": "postgres"
+    },
+    "sceneCode": "sceneCode",
+    "tntInstId": "default",
+    "topic": "TP_S_METADATA"
+  },
+  {
+    "channel": "channel",
+    "eventCode": "EC_UPDATENOTICE",
+    "eventId": "2856e205-dc09-429c-8c67-1ddf1ffe2dde",
+    "eventTime": 1630461929235,
+    "extraParams": {},
+    "invokeSystem": "invokeSystem",
+    "payload": {
+      "dataSourceId": "34",
+      "tableName": "test"
+    },
+    "sceneCode": "sceneCode",
+    "tntInstId": "default",
+    "topic": "TP_S_METADATA"
+  }
+]

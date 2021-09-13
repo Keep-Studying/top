@@ -1,0 +1,65 @@
+spring:
+  cloud:
+    stream:
+      kafka:
+        binder:
+          brokers: 121.199.78.155:9092         #Kafka的消息中间件服务器
+          auto-create-topics: true        #如果设置为false,就不会自动创建Topic 有可能你Topic还没创建就直接调用了。
+          configuration:
+            security:
+              protocol: SASL_PLAINTEXT
+            sasl:
+              mechanism: PLAIN
+              jaas.config: org.apache.kafka.common.security.plain.PlainLoginModule required username="admin" password="admin";
+      bindings:
+        output: #这里用stream给我们提供的默认output，后面会讲到自定义output
+          destination: test-topic    #消息发往的目的地
+          content-type: application/json    #消息发送的格式，接收端不用指定格式，但是发送端要
+        input:
+          destination: test-topic
+          content-type: application/json
+
+  application:
+    name: mq
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      name: 测试库
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      username: root
+      password: Aloudata20210520
+      url: jdbc:mysql://rm-bp13v78q00709p391co.mysql.rds.aliyuncs.com:3306/ams?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2B8
+      # 连接池的配置信息
+      # 初始化大小，最小，最大
+      initial-size: 5
+      min-idle: 5
+      maxActive: 20
+      # 配置获取连接等待超时的时间
+      maxWait: 60000
+      # 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+      timeBetweenEvictionRunsMillis: 60000
+      # 配置一个连接在池中最小生存的时间，单位是毫秒
+      minEvictableIdleTimeMillis: 300000
+      validationQuery: SELECT 1
+      testWhileIdle: true
+      testOnBorrow: false
+      testOnReturn: false
+      # 打开PSCache，并且指定每个连接上PSCache的大小
+      poolPreparedStatements: true
+      maxPoolPreparedStatementPerConnectionSize: 20
+      # 配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙
+      filters: stat,wall,slf4j,config
+      # 通过connectProperties属性来打开mergeSql功能；慢SQL记录
+      connectionProperties: druid.stat.mergeSql\=true;druid.stat.slowSqlMillis\=5000
+      web-stat-filter:
+        enabled: true
+        url-pattern: "/"
+        exclusions: "*.js,*.gif,*.jpg,*.bmp,*.png,*.css,*.ico,/druid/*"
+      stat-view-servlet:
+        enabled: true
+        url-pattern: "/druid/*"
+        login-username: admin  # 登录账号   不设置就不需要登录就可以访问druid可视化界面
+        login-password: 123456 # 登录密码
+        reset-enable: false
+        allow: ""  # 白名单 表示所有
+        deny: 192.168.1.12 # 黑名单
