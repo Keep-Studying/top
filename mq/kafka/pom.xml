@@ -21,7 +21,7 @@
         <spring-cloud-stream.version>3.0.12.RELEASE</spring-cloud-stream.version>
         <spring-data-commons.version>2.1.5.RELEASE</spring-data-commons.version>
         <mybatis.plus.version>3.4.0</mybatis.plus.version>
-        <mysql-connector.version>8.0.15</mysql-connector.version>
+        <mysql-connector.version>8.0.28</mysql-connector.version>
         <druid.version>1.1.22</druid.version>
     </properties>
     <dependencies>
