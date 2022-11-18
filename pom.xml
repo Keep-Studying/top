@@ -16,8 +16,25 @@
     <description>Demo project for Spring Boot</description>
 
     <modules>
+        <module>algorithm</module>
+        <module>bigdata/hadoop</module>
+        <module>bigdata/hive</module>
+        <module>bigdata/spark</module>
         <module>designpattern</module>
+        <module>distribute/zookeeper</module>
+        <module>dubbo/consumer</module>
+        <module>graph</module>
         <module>ik</module>
+        <module>jdk/jdk8</module>
+        <module>juc</module>
+        <module>jvm</module>
+        <module>metadata</module>
+        <module>mq/kafka</module>
+        <module>mybatis</module>
+        <module>netty</module>
+        <module>solr</module>
+        <module>spring</module>
+        <module>utils</module>
     </modules>
     <properties>
         <java.version>1.8</java.version>
