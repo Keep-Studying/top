@@ -3,6 +3,8 @@
  */
 package com.study.algorithm.list;
 
+import org.junit.Test;
+
 /**
  * 单链表
  * @author study
@@ -122,6 +124,45 @@ public class MyLinkedList {
         System.out.println("size:"+myLinkedList.size);
         myLinkedList.print();//5
     }
+
+    @Test
+    public void test001(){
+        ListNode node5 = new ListNode(5, null);
+        ListNode node4 = new ListNode(4, node5);
+        ListNode node3 = new ListNode(3, node4);
+        ListNode node2 = new ListNode(2, node3);
+        ListNode node1 = new ListNode(1, node2);
+        ListNode prev = recursion(node1);
+        System.out.println(prev);
+    }
+
+    /**
+     * 迭代器方式翻转链表
+     * @param head
+     * @return
+     */
+    public static ListNode iterate(ListNode head){
+        ListNode prev = null;
+        ListNode next ;
+        ListNode current = head;
+        while (current != null){
+            next = current.next;
+            current.next = prev;
+            prev = current;
+            current =next;
+        }
+        return prev;
+    }
+
+    public static ListNode recursion(ListNode head){
+        if (head == null || head.next == null){
+            return head;
+        }
+        ListNode newHead = recursion(head.next);
+        head.next.next = head;
+        head.next = null;
+        return newHead;
+    }
 }
 
 class ListNode{
@@ -131,5 +172,10 @@ class ListNode{
     public ListNode(int value) {
         this.value = value;
         this.next = null;
+    }
+
+    public ListNode(int value, ListNode next) {
+        this.value = value;
+        this.next = next;
     }
 }

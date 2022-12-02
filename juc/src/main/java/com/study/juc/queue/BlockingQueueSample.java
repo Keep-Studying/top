@@ -14,6 +14,7 @@ import java.util.concurrent.ThreadLocalRandom;
  * @author study
  * @version : BlockingQueueSample.java, v 0.1 2020年08月17日 7:45 study Exp $
  */
+@Slf4j
 public class BlockingQueueSample {
 
     public static void main(String[] args) {
@@ -23,6 +24,7 @@ public class BlockingQueueSample {
         int poisonPill = Integer.MAX_VALUE;
         int poisonPillPerProducer = N_CONSUMERS / N_PRODUCERS; // =0
         int mod = N_CONSUMERS % N_PRODUCERS;//0+8=8
+        log.info("N_CONSUMERS-{} ,poisonPill-{} ,mod-{} ", N_CONSUMERS, poisonPill, mod);
 
         BlockingQueue<Integer> queue = new ArrayBlockingQueue<Integer>(BOUND);
 
