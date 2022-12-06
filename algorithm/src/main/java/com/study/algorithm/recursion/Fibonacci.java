@@ -148,4 +148,30 @@ public class Fibonacci {
                     + (System.currentTimeMillis() - start) + "ms");
         }
     }
+
+    /**
+     * 时间复杂度：O(n)
+     * 空间复杂度：O(1)
+     * @param num
+     * @return
+     */
+    public int itertor(int num){
+        if ( num == 0){
+            return 0;
+        }
+        if ( num == 1){
+            return 1;
+        }
+        int low = 0,high = 1;
+        for (int i = 2;i<= num;i++){
+            int sum = low + high;
+            low = high;
+            high = sum;
+        }
+        return high;
+    }
+    @Test
+    public void testItertor(){
+        System.out.println(itertor(10));
+    }
 }

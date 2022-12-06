@@ -5,6 +5,8 @@ package com.study.algorithm.list;
 
 import org.junit.Test;
 
+import java.util.HashSet;
+
 /**
  * 单链表
  * @author study
@@ -162,6 +164,51 @@ public class MyLinkedList {
         head.next.next = head;
         head.next = null;
         return newHead;
+    }
+
+    @Test
+    public void test002(){
+        ListNode node5 = new ListNode(5, null);
+        ListNode node4 = new ListNode(4, node5);
+        ListNode node3 = new ListNode(3, node4);
+        ListNode node2 = new ListNode(2, node3);
+        ListNode node1 = new ListNode(1, node2);
+//        node5.next = node3;
+        System.out.println(handleCircle(node1));
+        System.out.println(handleCircle2(node1));
+    }
+
+    public static boolean handleCircle(ListNode head){
+        if ( head == null || head.next == null){
+            return false;
+        }
+        HashSet<ListNode> nodes = new HashSet<>();
+        while (head != null){
+            if (!nodes.add(head)){
+                return true;
+            }
+            head = head.next;
+        }
+        return false;
+    }
+
+    public static boolean handleCircle2(ListNode head){
+        if ( head == null || head.next == null){
+            return false;
+        }
+        ListNode slow = head;
+        ListNode quick = head.next;
+        while (slow != quick){
+            if (quick == null){
+                return false;
+            }
+            if (slow == null || quick.next == null){
+                return false;
+            }
+            slow = slow.next;
+            quick = quick.next.next;
+        }
+        return true;
     }
 }
 
