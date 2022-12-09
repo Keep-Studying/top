@@ -5,6 +5,9 @@
 
 package com.study.algorithm.count;
 
+import com.alibaba.fastjson.JSON;
+import org.junit.Test;
+
 import java.util.Arrays;
 import java.util.HashMap;
 
@@ -43,5 +46,52 @@ public class NumSum {
             hashMap.put(nums[i],i);
         }
         return new int[0];
+    }
+
+    /**
+     * 给定一定面额的钱，面额为1，5，10，20，每种钞票的数量是无限的，请计算出凑出指定金额数字如50的最少钞票数量
+     *
+     * 假如将10变为11，用这种算法有什么缺点
+     *
+     * 贪心算法来计算，最大面额依次降低，看哪种方式得到的数量最少
+     * 贪心算法得到的解，不一定的最优解
+     */
+    @Test public void test001() {
+        int nums[] = new int[] {1, 5, 10, 20};
+        int target = 50;
+        System.out.println(String.format("target is %s , nums is %s , min count is %s", target, JSON.toJSONString(nums),
+            compute(nums, target)));
+    }
+
+    public static int compute(int[] nums, int target) {
+        int min = Integer.MAX_VALUE;
+        for (int i = nums.length - 1; i >= 0; i--) {
+            int computeNum = computeNum(i, nums, target);
+            System.out.println(
+                String.format("target is %s , index is %s , num[%s] is %s , computeNum is %s", target, i, i, nums[i],
+                    computeNum));
+            min = Math.min(min, computeNum);
+        }
+        return min;
+    }
+
+    public static int computeNum(int index, int[] nums, int targetNum) {
+        System.out.println("====================start======================");
+        int count = 0;
+        int target = targetNum;
+        for (int i = index; i >= 0; i--) {
+            if (target == 0) {
+                break;
+            }
+            while ((target - nums[i]) >= 0 || (target - nums[i]) >= nums[i]) {
+                count++;
+                System.out.println(
+                    String.format("index is %s , target is %s , nums[%s] is %s , count is %s", index, target, i,
+                        nums[i], count));
+                target = target - nums[i];
+            }
+        }
+        System.out.println("=====================end=====================");
+        return count;
     }
 }
