@@ -21,7 +21,7 @@ public class LeetCode018 {
         ListNode node3 = new ListNode(3, node4);
         ListNode node2 = new ListNode(2, node3);
         ListNode node1 = new ListNode(1, node2);
-        ListNode node = kthNodeFromEnd(node1,3);
+        ListNode node = kthNodeFromEnd(node1,2);
         System.out.println(node);
     }
 

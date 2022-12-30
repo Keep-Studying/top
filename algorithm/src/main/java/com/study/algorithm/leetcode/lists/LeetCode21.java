@@ -3,6 +3,8 @@
  */
 package com.study.algorithm.leetcode.lists;
 
+import org.junit.Test;
+
 /**
  * LeetCode21
  * 合并两个有序链表
@@ -10,6 +12,21 @@ package com.study.algorithm.leetcode.lists;
  * @version : LeetCode21.java, v 0.1 2022-12-27 12:40 boyan
  */
 public class LeetCode21 {
+
+
+    @Test
+    public void test001(){
+        ListNode node5 = new ListNode(9, null);
+        ListNode node4 = new ListNode(7, node5);
+        ListNode node3 = new ListNode(5, node4);
+        ListNode node2 = new ListNode(3, node3);
+        ListNode node1 = new ListNode(1, node2);
+
+        ListNode node22 = new ListNode(4, null);
+        ListNode node11 = new ListNode(2, node22);
+        ListNode node = mergeLists(node1,node11);
+        System.out.println(node);
+    }
 
     /**
      * 循环 + 双指针解决

@@ -3,6 +3,8 @@
  */
 package com.study.algorithm.leetcode.lists;
 
+import org.junit.Test;
+
 import java.util.HashSet;
 
 /**
@@ -14,6 +16,19 @@ import java.util.HashSet;
  */
 public class LeetCode141 {
 
+    @Test
+    public void test001(){
+        ListNode node5 = new ListNode(5, null);
+        ListNode node4 = new ListNode(4, node5);
+        ListNode node3 = new ListNode(3, node4);
+        ListNode node2 = new ListNode(2, node3);
+        ListNode node1 = new ListNode(1, node2);
+        node5.next = node3;
+
+        System.out.println(hasCircle2(node1));
+        System.out.println(hasCircle(node1));
+    }
+
     /**
      * 使用HashSet来解决
      *
@@ -21,15 +36,11 @@ public class LeetCode141 {
      * @return
      */
     public boolean hasCircle2(ListNode head){
-        if (head == null){
-            return false;
-        }
         HashSet<ListNode> listNodes = new HashSet<>();
-        while (head.next != null){
-            if(listNodes.contains(head)){
+        while (head != null){
+            if (!listNodes.add(head)) {
                 return true;
             }
-            listNodes.add(head);
             head = head.next;
         }
         return false;
@@ -42,18 +53,18 @@ public class LeetCode141 {
      * @return
      */
     public boolean hasCircle(ListNode head){
-        if (head == null){
+        if (head == null || head.next == null) {
             return false;
         }
-        ListNode slowPtr = head;
-        ListNode fastPtr = head;
-        while (slowPtr.next != null && fastPtr.next.next != null){
-            slowPtr = slowPtr.next;
-            fastPtr = fastPtr.next.next;
-            if(slowPtr == fastPtr){
-                return true;
+        ListNode slow = head;
+        ListNode fast = head.next;
+        while (slow != fast) {
+            if (fast == null || fast.next == null) {
+                return false;
             }
+            slow = slow.next;
+            fast = fast.next.next;
         }
-        return false;
+        return true;
     }
 }

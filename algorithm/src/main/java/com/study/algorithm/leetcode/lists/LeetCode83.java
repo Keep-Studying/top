@@ -3,6 +3,8 @@
  */
 package com.study.algorithm.leetcode.lists;
 
+import org.junit.Test;
+
 /**
  * LeetCode83
  * 删除排序链表中重复元素
@@ -12,6 +14,17 @@ package com.study.algorithm.leetcode.lists;
  * @version : LeetCode83.java, v 0.1 2022-12-27 13:47 boyan
  */
 public class LeetCode83 {
+
+    @Test
+    public void test001(){
+        ListNode node5 = new ListNode(5, null);
+        ListNode node4 = new ListNode(4, node5);
+        ListNode node3 = new ListNode(2, node4);
+        ListNode node2 = new ListNode(2, node3);
+        ListNode node1 = new ListNode(1, node2);
+        ListNode node = deleteDuplicates(node1);
+        System.out.println(node);
+    }
 
     /**
      * T(n) = O(n)
