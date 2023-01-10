@@ -59,5 +59,28 @@ public class BubbleSort {
             }
         }
         System.out.println("排序后:"+Arrays.toString(data));
+        bubbleSort(data);
+        System.out.println(Arrays.toString(data));
+    }
+
+    public static void bubbleSort(int[] nums){
+        if (nums == null || nums.length == 0){
+            return;
+        }
+        int length = nums.length;
+        for (int i = 0; i < length; i++) {
+            boolean flag = false;
+            for (int j = 0; j < length-1-i; j++) {
+                if(nums[j] > nums[j+1]){
+                    int temp = nums[j];
+                    nums[j] = nums[j+1];
+                    nums[j+1] = temp;
+                    flag = true;
+                }
+            }
+            if(!flag){
+                break;
+            }
+        }
     }
 }

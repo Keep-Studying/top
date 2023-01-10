@@ -40,4 +40,21 @@ public class Factorial {
     public void testTailFac(){
         System.out.println(tailFac(5,1));
     }
+
+
+    @Test
+    public void test002(){
+        int fnn = fnn(3);
+        System.out.println(fnn);
+    }
+
+    public  int fnn(int n){
+        int result = 1;
+        int fn = 1 ;
+        for (int i = 1; i <= n; i++) {
+            fn  = fn * i;
+            result = result * fn;
+        }
+        return result;
+    }
 }

@@ -3,6 +3,10 @@
  */
 package com.study.algorithm.leetcode.lists;
 
+import com.alibaba.fastjson.JSON;
+import org.junit.Test;
+
+import java.util.ArrayList;
 import java.util.Stack;
 
 /**
@@ -47,5 +51,54 @@ public class LeetCode232 {
         while (!inStack.isEmpty()){
             outStack.push(inStack.pop());
         }
+    }
+
+    @Test public void test001() {
+        int[] ints = {5, 10, -5};
+        int[] compute = compute(ints);
+        System.out.println(JSON.toJSONString(compute));
+    }
+
+    public int[] compute(int[] nums) {
+        if (nums == null) {
+            return new int[0];
+        }
+        Stack<Integer> stack = new Stack<>();
+        stack.push(nums[0]);
+        for (int i = 1; i < nums.length; i++) {
+            Integer peek = stack.peek();
+            if (peek != null) {
+                if (peek > 0 && nums[i] > 0) {
+                    stack.push(nums[i]);
+                } else if (peek < 0 && nums[i] < 0) {
+                    stack.push(nums[i]);
+                } else {
+                    if (nums[i] > 0) {
+                        int temp = peek * -1;
+                        if (nums[i] > temp) {
+                            stack.pop();
+                            stack.push(nums[i]);
+                        }
+                    } else {
+                        int temp = nums[i] * -1;
+                        if (peek < temp) {
+                            stack.pop();
+                            stack.push(nums[i]);
+                        }
+                    }
+                }
+            }
+        }
+        ArrayList<Integer> integers = new ArrayList<>();
+        while (!stack.isEmpty()) {
+            integers.add(stack.pop());
+        }
+
+        int size = integers.size();
+        int[] result = new int[size];
+        for (int i = size - 1; i >= 0; i--) {
+            result[size - 1 - i] = integers.get(i);
+        }
+        return result;
     }
 }

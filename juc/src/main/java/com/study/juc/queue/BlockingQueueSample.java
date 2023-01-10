@@ -24,7 +24,7 @@ public class BlockingQueueSample {
         int poisonPill = Integer.MAX_VALUE;
         int poisonPillPerProducer = N_CONSUMERS / N_PRODUCERS; // =0
         int mod = N_CONSUMERS % N_PRODUCERS;//0+8=8
-        log.info("N_CONSUMERS-{} ,poisonPill-{} ,mod-{} ", N_CONSUMERS, poisonPill, mod);
+//        log.info("N_CONSUMERS-{} ,poisonPill-{} ,mod-{} ", N_CONSUMERS, poisonPill, mod);
 
         BlockingQueue<Integer> queue = new ArrayBlockingQueue<Integer>(BOUND);
 
@@ -36,13 +36,13 @@ public class BlockingQueueSample {
             new Thread(new NumbersConsumer(queue, poisonPill)).start();
         }
 
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            Thread.sleep(5000);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
 
-        new Thread(new NumbersProducer(queue, poisonPill, poisonPillPerProducer + mod)).start();
+//        new Thread(new NumbersProducer(queue, poisonPill, poisonPillPerProducer + mod)).start();
     }
 }
 
@@ -64,11 +64,14 @@ class NumbersConsumer implements Runnable {
         try {
             while (true) {
                 Integer number = queue.take();
+                long l = System.currentTimeMillis();
                 if (number.equals(poisonPill)) {
-                    log.info("武大郎-{}号,喝到毒药！！！,药-编号:{}",Thread.currentThread().getId(),number);
+//                    log.info("武大郎-{}号,喝到毒药！！！,药-编号:{}",Thread.currentThread().getId(),number);
+                    System.out.println(String.format("武大郎-%s号,喝到毒药！！！,药-编号:%s",Thread.currentThread().getId(),number));
                     return;
                 }
-                log.info("武大郎-{}号,喝药-编号:{}",Thread.currentThread().getId(),number);
+//                log.info("武大郎-{}号,喝药-编号:{}",Thread.currentThread().getId(),number);
+                System.out.println(String.format("武大郎-%s号,喝药-编号:%s",Thread.currentThread().getId(),number));
             }
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
@@ -100,8 +103,11 @@ class NumbersProducer implements Runnable {
 
     private void generateNumbers() throws InterruptedException {
         for (int i = 0; i < 100; i++) {
+            int i1 = ThreadLocalRandom.current().nextInt(100);
             numbersQueue.put(ThreadLocalRandom.current().nextInt(100));
-            log.info("潘金莲-{}号,给武大郎的泡药！",Thread.currentThread().getId());
+//            log.info("潘金莲-{}号,给武大郎的泡药！",Thread.currentThread().getId());
+
+            System.out.println(String.format("潘金莲- %s 号,给武大郎的泡药！",Thread.currentThread().getId()));
         }
         /*while(true){
             numbersQueue.put(ThreadLocalRandom.current().nextInt(100));
@@ -110,7 +116,7 @@ class NumbersProducer implements Runnable {
 
         for (int j = 0; j < poisonPillPerProducer; j++) {
             numbersQueue.put(poisonPill);
-            log.info("潘金莲-{}号,往武大郎的药里放入第{}颗毒丸！",Thread.currentThread().getId(),j+1);
+//            log.info("潘金莲-{}号,往武大郎的药里放入第{}颗毒丸！",Thread.currentThread().getId(),j+1);
         }
     }
 }

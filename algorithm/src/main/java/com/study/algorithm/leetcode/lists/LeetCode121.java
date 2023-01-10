@@ -27,7 +27,7 @@ public class LeetCode121 {
         }
         int profitMax = 0;
         int min = prices[0];
-        for (int i = 0; i < prices.length; i++) {
+        for (int i = 1; i < prices.length; i++) {
             // 当前元素大于最小值，看是否需要更新已知的最大差距
             if (prices[i] > min){
                 profitMax = Math.max(profitMax,prices[i]-min);

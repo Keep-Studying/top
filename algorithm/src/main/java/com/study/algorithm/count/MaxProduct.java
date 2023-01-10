@@ -25,7 +25,7 @@ public class MaxProduct {
     public static int sort(int[] nums){
         Arrays.sort(nums);
         int length = nums.length;
-        return Math.max(nums[0] * nums[0] * nums[length-1] , nums[length-1] * nums[length-2] * nums[length-3]);
+        return Math.max(nums[0] * nums[1] * nums[length-1] , nums[length-1] * nums[length-2] * nums[length-3]);
     }
 
     public static int maxMin(int[] nums) {
