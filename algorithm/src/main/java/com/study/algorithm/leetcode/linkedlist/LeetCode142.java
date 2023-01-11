@@ -1,9 +1,10 @@
 /**
  * Copyright (c) 2021-2022 All Rights Reserved.
  */
-package com.study.algorithm.leetcode.lists;
+package com.study.algorithm.leetcode.linkedlist;
 
 import com.alibaba.fastjson.JSON;
+import com.study.algorithm.leetcode.lists.ListNode;
 import org.junit.Test;
 
 /**
