@@ -29,12 +29,6 @@ public class GroupMerge {
         System.out.println(dfs(new int[][]{{1,1,0},{1,1,0},{0,0,1}}));
         // 3
         System.out.println(dfs(new int[][]{{1,0,0},{0,1,0},{0,0,1}}));
-        // dfs遍历
-        System.out.println("dfs1遍历：");
-        // 2
-        System.out.println(dfs1(new int[][]{{1,1,0},{1,1,0},{0,0,1}}));
-        // 3
-        System.out.println(dfs1(new int[][]{{1,0,0},{0,1,0},{0,0,1}}));
 
         // bfs遍历
         System.out.println("bfs遍历：");
@@ -51,27 +45,6 @@ public class GroupMerge {
         System.out.println(bfs(new int[][]{{1,0,0},{0,1,0},{0,0,1}}));
     }
 
-    private static int dfs1(int[][] citiesConnected){
-        int cities = citiesConnected.length;
-        int province = 0;
-        boolean[] visited = new boolean[cities];
-        for (int i = 0; i < cities; i++) {
-            if(!visited[i]){
-                dfs2(i,cities,visited,citiesConnected);
-                province++;
-            }
-        }
-        return province;
-    }
-
-    private static void dfs2(int i, int cities, boolean[] visited, int[][] citiesConnected) {
-        for (int j = 0; j < cities; j++) {
-            if(citiesConnected[i][j] == 1 && !visited[j]){
-                visited[j] = true;
-                dfs2(j,cities,visited,citiesConnected);
-            }
-        }
-    }
 
     /**
      * 深度优先遍历
