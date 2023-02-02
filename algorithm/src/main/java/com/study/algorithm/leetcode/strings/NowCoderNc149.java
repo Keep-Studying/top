@@ -66,4 +66,31 @@ public class NowCoderNc149 {
         }
         return cnt;
     }
+
+    public int kmp1(String S, String T) {
+        // write code here
+        int m = S.length(), n = T.length();
+        // 特殊情况判断
+        if (m > n || n == 0) {
+            return 0;
+        }
+        //出现次数
+        int cnt = 0;
+        //分别遍历主串和模式串
+        for (int i = 0,j=0; i < n; i++) {
+            while (j>0 && T.charAt(i) != S.charAt(j)){
+                i = i- j +1;
+                j = 0;
+            }
+            if (T.charAt(i) == S.charAt(j)){
+                j++;
+            }
+            if (j == m){
+                cnt++;
+                i = i -j +2;
+                j = 0;
+            }
+        }
+        return cnt;
+    }
 }

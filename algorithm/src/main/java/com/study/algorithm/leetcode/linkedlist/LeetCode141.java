@@ -57,15 +57,17 @@ public class LeetCode141 {
         if (head == null || head.next == null) {
             return false;
         }
-        ListNode slow = head;
-        ListNode fast = head.next;
-        while (slow != fast) {
-            if (fast == null || fast.next == null) {
-                return false;
+        ListNode slowPtr = head;
+        ListNode fastPtr = head;
+        boolean loopExists = false;
+        while (slowPtr.next != null && fastPtr.next.next != null){
+            slowPtr = slowPtr.next;
+            fastPtr = fastPtr.next.next;
+            if(slowPtr == fastPtr){
+                loopExists = true;
+                break;
             }
-            slow = slow.next;
-            fast = fast.next.next;
         }
-        return true;
+        return loopExists;
     }
 }

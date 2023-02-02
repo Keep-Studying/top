@@ -31,7 +31,7 @@ public class LeetCode234 {
         ListNode fast = head;
         ListNode slow = head;
         //将快指针移动到链表的尾部
-        while (fast != null && fast.next != null){
+        while (fast.next != null && fast.next.next != null){
             fast = fast.next.next;
             slow = slow.next;
         }

@@ -32,6 +32,7 @@ public class LeetCode1839 {
         String word = "aeiaaioaaaaeiiiiouuuooaauuaeiu";
         int length = longestBeautifulSubstring(word);
         System.out.println(length);
+        System.out.println(longestBeautifulSubstring1(word));
     }
 
     public int longestBeautifulSubstring(String word) {
@@ -53,6 +54,26 @@ public class LeetCode1839 {
             if (type == 5) {
                 //更新最大字符串
                 ans = Math.max(ans, len);
+            }
+        }
+        return ans;
+    }
+
+    public int longestBeautifulSubstring1(String word) {
+        int ans = 0, type = 1, len = 1;
+        for (int i = 1; i < word.length(); i++) {
+            if (word.charAt(i) >= word.charAt(i-1)){
+                len++;
+            }
+            if (word.charAt(i) > word.charAt(i-1)){
+                type++;
+            }
+            if (word.charAt(i) < word.charAt(i-1)){
+                len = 1;
+                type = 1;
+            }
+            if(type == 5){
+                ans = Math.max(ans,len);
             }
         }
         return ans;

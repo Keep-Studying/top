@@ -44,8 +44,8 @@ public class LeetCode08_08 {
     @Test
     public void test001(){
         String str = "qqe";
-        String[] permutation = permutation(str);
-        System.out.println(JSON.toJSONString(permutation));
+        System.out.println(JSON.toJSONString(permutation(str)));
+//        System.out.println(JSON.toJSONString(permutation1(str)));
     }
 
     public String[] permutation(String s) {
@@ -68,6 +68,32 @@ public class LeetCode08_08 {
                 temp.append(arr[i]);
                 visited[i] = true;
                 backtrack(index + 1);
+                temp.deleteCharAt(index);
+                visited[i] = false;
+            }
+        }
+    }
+
+    public String[] permutation1(String s) {
+        arr = s.toCharArray();
+        Arrays.sort(arr);
+        n = arr.length;
+        visited = new boolean[n];
+        backtrack1(0);
+        return permutations.toArray(new String[permutations.size()]);
+    }
+
+    public void backtrack1(int index) {
+        if(index == n){
+            permutations.add(temp.toString());
+        }else {
+            for (int i = 0; i < n; i++) {
+                if(visited[i] || (i>0 && arr[i] == arr[i-1] && !visited[i-1])){
+                    continue;
+                }
+                temp.append(arr[i]);
+                visited[i] = true;
+                backtrack1(index+1);
                 temp.deleteCharAt(index);
                 visited[i] = false;
             }

@@ -62,4 +62,30 @@ public class LeetCode142 {
 
         return null;
     }
+
+    public ListNode hasCircle1(ListNode head){
+        if (head == null){
+            return null;
+        }
+        ListNode slowPtr = head;
+        ListNode fastPtr = head;
+        boolean loopExists = false;
+        while (slowPtr.next != null && fastPtr.next.next != null){
+            slowPtr = slowPtr.next;
+            fastPtr = fastPtr.next.next;
+            if (slowPtr == fastPtr){
+                loopExists = true;
+                break;
+            }
+        }
+        if(loopExists){
+            slowPtr = head;
+            while (slowPtr != fastPtr){
+                slowPtr = slowPtr.next;
+                fastPtr = fastPtr.next;
+            }
+            return slowPtr;
+        }
+        return null;
+    }
 }

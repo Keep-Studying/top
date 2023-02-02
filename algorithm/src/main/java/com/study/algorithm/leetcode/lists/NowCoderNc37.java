@@ -3,8 +3,15 @@
  */
 package com.study.algorithm.leetcode.lists;
 
+import com.alibaba.fastjson.JSON;
+import org.junit.Test;
+
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
 /**
  * NowCoderHj37
  *
@@ -23,6 +30,18 @@ import java.util.Collections;
  * @version : NowCoderHj37.java, v 0.1 2023-01-11 15:34 boyan
  */
 public class NowCoderNc37 {
+
+
+    @Test
+    public void test001(){
+        ArrayList<Interval> intervals = new ArrayList<>();
+        intervals.add(new Interval(1, 3));
+        intervals.add(new Interval(2, 4));
+        intervals.add(new Interval(3, 6));
+
+        ArrayList<Interval> merge = merge(intervals);
+        System.out.println(JSON.toJSONString(merge));
+    }
 
     /**
      * Definition for an interval.
@@ -55,4 +74,31 @@ public class NowCoderNc37 {
         return result;
     }
 
+
+    @Test
+    public void test002(){
+        int[][] merge = merge(new int[][] {{1, 3}, {2, 6}, {8, 10},{15, 18}});
+        System.out.println(JSON.toJSONString(merge));
+    }
+
+    public int[][] merge(int[][] intervals) {
+        if (intervals.length == 0) {
+            return new int[0][2];
+        }
+        Arrays.sort(intervals, new Comparator<int[]>() {
+            public int compare(int[] interval1, int[] interval2) {
+                return interval1[0] - interval2[0];
+            }
+        });
+        List<int[]> merged = new ArrayList<>();
+        for (int i = 0; i < intervals.length; ++i) {
+            int L = intervals[i][0], R = intervals[i][1];
+            if (merged.size() == 0 || merged.get(merged.size() - 1)[1] < L) {
+                merged.add(new int[]{L, R});
+            } else {
+                merged.get(merged.size() - 1)[1] = Math.max(merged.get(merged.size() - 1)[1], R);
+            }
+        }
+        return merged.toArray(new int[merged.size()][]);
+    }
 }

@@ -31,4 +31,17 @@ public class LeetCode206 {
         }
         return prev;
     }
+
+    public static ListNode iterate1(ListNode head){
+        ListNode prev = null;
+        ListNode current = head;
+        while (current != null){
+            ListNode next = current.next;
+            current.next = prev;
+            prev = current;
+            current = next;
+        }
+        return prev;
+    }
+
 }

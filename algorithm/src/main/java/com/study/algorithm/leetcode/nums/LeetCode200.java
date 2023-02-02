@@ -40,6 +40,7 @@ public class LeetCode200 {
         System.out.println("bfs遍历：");
         // 2
         System.out.println(bfs(new int[][]{{1,1,1,1,0},{1,1,0,1,0},{0,0,0,0,0}}));
+        System.out.println(bfs1(new int[][]{{1,1,1,1,0},{1,1,0,1,0},{0,0,0,0,0}}));
         // 3
         System.out.println(bfs(new int[][]{{1,0,0},{0,1,0},{0,0,1}}));
     }
@@ -77,7 +78,7 @@ public class LeetCode200 {
 
 
     /**
-     * 深度优先遍历
+     * 广度优先遍历
      *
      * 时间复杂度：T(n) = O(n^2)
      * 空间复杂度：S(n) = O(2n)即 O(n)
@@ -100,6 +101,29 @@ public class LeetCode200 {
                         // visited[j] 为true时表示已经访问过，则不需要再次访问了
                         if (citiesConnected[i][j] == 1 && !visited[j]){
                             queue.offer(j);
+                        }
+                    }
+                }
+                province++;
+            }
+        }
+        return province;
+    }
+
+    private static int bfs1(int[][] citiesConnected){
+        int cities = citiesConnected.length;
+        int province = 0;
+        boolean[] visited = new boolean[cities];
+        Queue<Integer> queue = new LinkedList<>();
+        for (int i = 0; i < cities; i++) {
+            if (!visited[i]){
+                queue.offer(i);
+                while (!queue.isEmpty()){
+                    Integer k = queue.poll();
+                    visited[k] = true;
+                    for (int j = 0; j < cities; j++) {
+                        if (citiesConnected[i][j] == 1 && !visited[j]){
+                            visited[j] = true;
                         }
                     }
                 }

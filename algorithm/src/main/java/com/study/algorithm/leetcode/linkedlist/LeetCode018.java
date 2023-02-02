@@ -24,6 +24,8 @@ public class LeetCode018 {
         ListNode node1 = new ListNode(1, node2);
         ListNode node = kthNodeFromEnd(node1,2);
         System.out.println(node);
+        ListNode node0 = kthNodeFromEnd1(node1,2);
+        System.out.println(node0);
     }
 
     public ListNode kthNodeFromEnd(ListNode head ,int kthNode){
@@ -48,6 +50,33 @@ public class LeetCode018 {
             pTemp = pTemp.next;
         }
         if(pKthNode != null){
+            return pKthNode;
+        }
+        return null;
+    }
+
+    public ListNode kthNodeFromEnd1(ListNode head, int kthNode) {
+        if (head == null || kthNode <= 0) {
+            return null;
+        }
+        ListNode pTemp = head;
+        ListNode pKthNode = null;
+        // pTemp沿着链表移动了k-1次
+        for (int i = 1; i < kthNode; i++) {
+            if (pTemp != null) {
+                pTemp = pTemp.next;
+            }
+        }
+        //将快指针移动到链表的尾部
+        while (pTemp != null) {
+            if (pKthNode == null) {
+                pKthNode = head;
+            } else {
+                pKthNode = pKthNode.next;
+            }
+            pTemp = pTemp.next;
+        }
+        if (pKthNode != null) {
             return pKthNode;
         }
         return null;

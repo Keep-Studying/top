@@ -28,6 +28,7 @@ public class LeetCode77 {
     public void test001(){
         List<List<Integer>> lists = combine(4, 2);
         System.out.println(JSON.toJSONString(lists));
+        System.out.println(JSON.toJSONString(combine1(4, 2)));
     }
 
 
@@ -54,5 +55,29 @@ public class LeetCode77 {
             path.removeLast();
         }
     }
+
+    public List<List<Integer>> combine1(int n, int k) {
+        List<List<Integer>> res = new ArrayList<>();
+        if (k <= 0 || n <k){
+            return res;
+        }
+        ArrayDeque<Integer> deque = new ArrayDeque<>();
+        dfs1(n,k,1,deque,res);
+        return res;
+    }
+
+    private void dfs1(int n, int k, int index, Deque<Integer> path, List<List<Integer>> res) {
+        if (path.size() == k){
+            res.add(new ArrayList<>(path));
+            return;
+        }
+
+        for (int i = index; i <= n -( k- path.size())+1; i++) {
+            path.add(i);
+            dfs1(n,k,i+1,path,res);
+            path.removeLast();
+        }
+    }
+
 
 }

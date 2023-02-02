@@ -37,6 +37,7 @@ public class LeetCode1614 {
         String str = "(1+(2*3)+((8)/4))+1";
         int maxDepth = maxDepth(str);
         System.out.println(maxDepth);
+        System.out.println(maxDepth1(str));
     }
 
     public int maxDepth(String s) {
@@ -48,6 +49,19 @@ public class LeetCode1614 {
                 ans = Math.max(ans,size);
             }else if (ch == ')'){
                 --size;
+            }
+        }
+        return ans;
+    }
+
+    public int maxDepth1(String s) {
+        int ans = 0,size = 0;
+        for (char ch : s.toCharArray()) {
+            if(ch == '('){
+                size++;
+                ans = Math.max(ans,size);
+            }else if(ch == ')'){
+                size--;
             }
         }
         return ans;

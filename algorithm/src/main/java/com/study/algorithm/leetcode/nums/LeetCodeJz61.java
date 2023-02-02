@@ -54,4 +54,22 @@ public class LeetCodeJz61 {
         // 最大牌 - 最小牌 < 5 则可构成顺子
         return max - min < 5;
     }
+
+    public boolean isStraigh1t(int[] nums){
+        Set<Integer> repeat = new HashSet<>();
+        int max = 0,min= 14;
+        for (int num :nums) {
+            if ( num == 0){
+                continue;
+            }
+            max = Math.max(max,num);
+            min = Math.min(min,num);
+            if (repeat.contains(num)){
+                return false;
+            }
+            repeat.add(num);
+        }
+        // 最大牌 - 最小牌 < 5 则可构成顺子
+        return max - min < 5;
+    }
 }

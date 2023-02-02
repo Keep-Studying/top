@@ -40,7 +40,7 @@ public class NowCoderHj23 {
 
             //用空字符串替换该字母
             for (Character character : map.keySet()) {
-                if (map.get(character) == min){
+                if (map.get(character).equals(min) ){
                     s = s.replaceAll(String.valueOf(character), "");
                 }
             }

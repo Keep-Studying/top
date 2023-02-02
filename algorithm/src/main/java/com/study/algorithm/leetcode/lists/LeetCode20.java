@@ -20,6 +20,7 @@ public class LeetCode20 {
         String s = "[({})]";
         boolean valid = isValid(s);
         System.out.println(valid);
+        System.out.println(isValid1(s));
     }
 
     public boolean isValid(String s){
@@ -32,6 +33,22 @@ public class LeetCode20 {
             }else if(ch == '['){
                 stack.push(']');
             }else if(stack.isEmpty() || stack.pop() != ch){
+                return false;
+            }
+        }
+        return stack.isEmpty();
+    }
+
+    public boolean isValid1(String s){
+        Stack<Character> stack = new Stack<>();
+        for (char ch :s.toCharArray()) {
+            if (ch == '('){
+                stack.push(')');
+            }else if (ch == '{'){
+                stack.push('}');
+            }else if (ch == '['){
+                stack.push(']');
+            }else if (stack.isEmpty() || stack.pop() != ch){
                 return false;
             }
         }

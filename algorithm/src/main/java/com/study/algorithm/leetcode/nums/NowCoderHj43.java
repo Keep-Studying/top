@@ -106,6 +106,42 @@ public class NowCoderHj43 {
     }
 
 
+    public static boolean dfs1(int[][] nums, int x, int y, List<Position> path) {
+        // 添加路径并标记已走
+        path.add(new Position(x,y));
+        nums[x][y] = 1;
+        if (x == nums.length -1 && y == nums[0].length-1 ){
+            return true;
+        }
+        //向下
+        if (x +1 < nums.length && nums[x+1][y] == 0){
+            if(dfs1(nums,x+1,y,path)){
+                return true;
+            }
+        }
+        //向右
+        if (y +1 < nums[0].length && nums[x][y+1] == 0){
+            if(dfs1(nums,x,y+1,path)){
+                return true;
+            }
+        }
+        //向上
+        if (x -1 > -1 && nums[x-1][y] == 0){
+            if(dfs1(nums,x-1,y,path)){
+                return true;
+            }
+        }
+        //向左
+        if (y -1 > -1 && nums[x][y-1] == 0){
+            if(dfs1(nums,x,y-1,path)){
+                return true;
+            }
+        }
+        path.remove(path.size()-1);
+        nums[x][y] = 0;
+        return false;
+    }
+
     static class Position{
         int x;
         int y;

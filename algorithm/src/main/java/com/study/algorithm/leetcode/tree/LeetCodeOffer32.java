@@ -45,9 +45,11 @@ public class LeetCodeOffer32 {
         TreeNode root = new TreeNode(3, node2, node3);
         List<List<Integer>> levelOrder = levelOrder(root);
         System.out.println(levelOrder.toString());
+        System.out.println(levelOrder1(root));
 
         List<List<Integer>> zigzagLevelOrder = zigzagLevelOrder(root);
         System.out.println(zigzagLevelOrder.toString());
+        System.out.println(zigzagLevelOrder1(root));
     }
 
     public List<List<Integer>> levelOrder(TreeNode root) {
@@ -73,6 +75,31 @@ public class LeetCodeOffer32 {
             ans.add(new LinkedList<>(levelList));
         }
         return ans;
+    }
+
+    public List<List<Integer>> levelOrder1(TreeNode root) {
+        List<List<Integer>> result = new ArrayList<>();
+        if (root == null){
+            return result;
+        }
+        Queue<TreeNode> queue = new ArrayDeque<>();
+        queue.offer(root);
+        while (!queue.isEmpty()){
+            List<Integer> level = new ArrayList<>();
+            int size = queue.size();
+            for (int i = 0; i < size; i++) {
+                TreeNode node = queue.poll();
+                level.add(node.data);
+                if (node.left != null){
+                    queue.offer(node.left);
+                }
+                if (node.right != null){
+                    queue.offer(node.right);
+                }
+            }
+            result.add(new LinkedList<>(level));
+        }
+        return result;
     }
 
     public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
@@ -104,5 +131,37 @@ public class LeetCodeOffer32 {
             isOrderLeft = !isOrderLeft;
         }
         return ans;
+    }
+
+
+    public List<List<Integer>> zigzagLevelOrder1(TreeNode root) {
+        List<List<Integer>> result = new ArrayList<>();
+        if (root == null){
+            return result;
+        }
+        Queue<TreeNode> queue = new ArrayDeque<>();
+        queue.offer(root);
+        boolean isOrderLeft = true;
+        while (!queue.isEmpty()){
+            Deque<Integer> level = new LinkedList<>();
+            int size = queue.size();
+            for (int i = 0; i < size; i++) {
+                TreeNode node = queue.poll();
+                if (isOrderLeft){
+                    level.offerLast(node.data);
+                }else {
+                    level.offerFirst(node.data);
+                }
+                if (node.left != null){
+                    queue.offer(node.left);
+                }
+                if (node.right != null){
+                    queue.offer(node.right);
+                }
+            }
+            result.add(new LinkedList<>(level));
+            isOrderLeft = !isOrderLeft;
+        }
+        return result;
     }
 }

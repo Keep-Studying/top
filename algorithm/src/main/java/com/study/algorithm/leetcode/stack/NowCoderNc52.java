@@ -25,6 +25,7 @@ public class NowCoderNc52 {
         String str = "[]{}";
         boolean valid = isValid(str);
         System.out.println(valid);
+        System.out.println(isValid1(str));
     }
 
     /**
@@ -62,6 +63,22 @@ public class NowCoderNc52 {
                     stack.pop();
                     break;
                 default:break;
+            }
+        }
+        return stack.isEmpty();
+    }
+
+    public boolean isValid1(String str) {
+        Stack<Character> stack = new Stack<>();
+        for (char ch:str.toCharArray()) {
+            if (ch == '{'){
+                stack.push('}');
+            }else if(ch == '('){
+                stack.push(')');
+            }else if(ch == '['){
+                stack.push(']');
+            }else if(stack.isEmpty() || stack.pop() != ch){
+                return false;
             }
         }
         return stack.isEmpty();
