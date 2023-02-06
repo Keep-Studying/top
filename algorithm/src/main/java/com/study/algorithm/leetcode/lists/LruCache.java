@@ -1,7 +1,7 @@
 /**
  * Copyright (c) 2021-2022 All Rights Reserved.
  */
-package com.study.algorithm.list;
+package com.study.algorithm.leetcode.lists;
 
 import java.util.HashMap;
 import java.util.Map;

@@ -22,7 +22,7 @@ public class NowCoderNc52 {
 
     @Test
     public void test001(){
-        String str = "[]{}";
+        String str = "[]{}aa";
         boolean valid = isValid(str);
         System.out.println(valid);
         System.out.println(isValid1(str));
