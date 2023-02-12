@@ -57,4 +57,36 @@ public class LeetCode394 {
         }
         return result;
     }
+
+    public static String decodeString1(String s){
+        String result = "";
+        Stack<Integer> countStack = new Stack<>();
+        Stack<String> resultStack = new Stack<>();
+        int index = 0;
+        while (index < s.length()){
+            char ch = s.charAt(index);
+            if (Character.isDigit(ch)){
+                StringBuffer stringBuffer = new StringBuffer();
+                while (Character.isDigit(s.charAt(index))){
+                    stringBuffer.append(s.charAt(index++));
+                }
+                countStack.push(Integer.parseInt(stringBuffer.toString()));
+            }else if (ch == '['){
+                resultStack.push(result);
+                result = "";
+                index++;
+            }else if (ch == ']'){
+                StringBuffer stringBuffer = new StringBuffer(resultStack.pop());
+                int repeatTimes = countStack.pop();
+                for (int i = 0; i < repeatTimes; i++) {
+                    stringBuffer.append(result);
+                }
+                result = stringBuffer.toString();
+                index++;
+            }else {
+                result += s.charAt(index++);
+            }
+        }
+        return result;
+    }
 }
