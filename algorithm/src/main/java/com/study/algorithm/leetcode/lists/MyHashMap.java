@@ -97,4 +97,70 @@ public class MyHashMap {
     private static int hash(int key) {
         return key % BASE;
     }
+
+
+
+    private class HashEntry{
+
+        private int key;
+        private int value;
+        HashEntry next;
+        HashEntry(int key,int value){
+            this.key = key;
+            this.value = value;
+        }
+    }
+    int capacity;
+    HashEntry[] datas;
+    MyHashMap(int capacity){
+        this.capacity = capacity;
+        this.datas = new HashEntry[4];
+
+    }
+
+    public int get1(int key) {
+        int h = hash(key);
+        HashEntry iterator = datas[h];
+        while (iterator != null) {
+            if (iterator.key == key) {
+                return iterator.value;
+            }
+            iterator = iterator.next;
+        }
+        return -1;
+    }
+
+    public void put1(int key, int value) {
+        int h = hash(key);
+        HashEntry iterator = datas[h];
+        if (iterator == null){
+            datas[h] = new HashEntry(key, value);
+            return;
+        }
+        while (iterator != null) {
+            if (iterator.key == key) {
+                iterator.value = value;
+                return;
+            }
+            iterator = iterator.next;
+        }
+        iterator.next = new HashEntry(key, value);
+    }
+
+    public void remove1(int key) {
+        int h = hash(key);
+        HashEntry iterator = datas[h];
+        if(iterator == null){
+            return;
+        }
+        while (iterator != null) {
+            if (iterator.key == key) {
+                 iterator.key = iterator.next.key;
+                 iterator.value = iterator.next.value;
+                 iterator.next = iterator.next.next;
+                 break;
+            }
+            iterator = iterator.next;
+        }
+    }
 }
